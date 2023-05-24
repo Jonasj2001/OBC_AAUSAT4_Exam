@@ -1,6 +1,6 @@
 # OBC_AAUSAT6_EIT4_Exam
 
-##Welcome to group 412 AAUSAT6_P4 group project
+## Welcome to group 412 AAUSAT6_P4 group project
 
 All code used for radio decoding can be found in the FPGA folder.
 
