@@ -27,6 +27,11 @@
              self.flag.is_high()
          }
 
+         pub fn readFSM(&mut self) -> bool{
+            self.fsm.is_high()
+         }
+
+
          pub fn read(&mut self, data: &mut[u8]) {
             for i in 0..data.len() {
                 while self.spi.is_busy() {}

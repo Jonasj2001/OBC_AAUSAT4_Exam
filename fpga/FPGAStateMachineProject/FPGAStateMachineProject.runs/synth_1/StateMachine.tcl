@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.tcl"
+  variable script "C:/Users/paw/Desktop/AAUSAT6_P4/projects/fpga/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.tcl"
   variable category "vivado_synth"
 }
 
@@ -78,17 +78,17 @@ create_project -in_memory -part xc7a35tcpg236-1
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.cache/wt} [current_project]
-set_property parent.project_path {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.xpr} [current_project]
+set_property webtalk.parent_dir C:/Users/paw/Desktop/AAUSAT6_P4/projects/fpga/FPGAStateMachineProject/FPGAStateMachineProject.cache/wt [current_project]
+set_property parent.project_path C:/Users/paw/Desktop/AAUSAT6_P4/projects/fpga/FPGAStateMachineProject/FPGAStateMachineProject.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
 set_property board_part_repo_paths {C:/Users/paw/AppData/Roaming/Xilinx/Vivado/2022.2/xhub/board_store/xilinx_board_store} [current_project]
 set_property board_part digilentinc.com:cmod_a7-35t:part0:1.2 [current_project]
-set_property ip_output_repo {c:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.cache/ip} [current_project]
+set_property ip_output_repo c:/Users/paw/Desktop/AAUSAT6_P4/projects/fpga/FPGAStateMachineProject/FPGAStateMachineProject.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_vhdl -library xil_defaultlib {{C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd}}
+read_vhdl -library xil_defaultlib C:/Users/paw/Desktop/AAUSAT6_P4/projects/fpga/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -103,7 +103,7 @@ set_property used_in_implementation false [get_files {{C:/Users/paw/Desktop/Alle
 
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp}
+read_checkpoint -auto_incremental -incremental C:/Users/paw/Desktop/AAUSAT6_P4/projects/fpga/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }

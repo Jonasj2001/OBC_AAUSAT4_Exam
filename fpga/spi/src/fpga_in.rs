@@ -29,17 +29,35 @@
             self.cs.toggle();
         }
 
-        pub fn correct_callsign(&mut self) {
-            let callsign = [0x00, 0x00, 0x00, 0x00, 0x00, 0x00];
-            let fsm = [0xff];
+        pub fn LongCallsign(&mut self) {
+            let callsign = [0x4f, 0x5a, 0x36, 0x43, 0x55, 0x42];
+            let fsm = [0x59];
             
             self.cs.set_low();
             for i in 0..256 {
                 while self.spi.is_busy() {}
-                if i == 69 {
-                    self.spi.write(&callsign).unwrap();
-                    while self.spi.is_busy() {}
+                if i == 255 {
                     self.spi.write(&fsm).unwrap();
+                    while self.spi.is_busy() {}
+                    self.spi.write(&callsign).unwrap();
+                } else {
+                self.spi.write(&[i as u8]).unwrap();
+                }
+            }
+
+        }
+
+        pub fn ShortCallsign(&mut self) {
+            let callsign = [0x4f, 0x5a, 0x36, 0x43, 0x55, 0x42];
+            let fsm = [0xA6];
+            
+            self.cs.set_low();
+            for i in 0..256 {
+                while self.spi.is_busy() {}
+                if i == 255 {
+                    self.spi.write(&fsm).unwrap();
+                    while self.spi.is_busy() {}
+                    self.spi.write(&callsign).unwrap();
                 } else {
                 self.spi.write(&[i as u8]).unwrap();
                 }

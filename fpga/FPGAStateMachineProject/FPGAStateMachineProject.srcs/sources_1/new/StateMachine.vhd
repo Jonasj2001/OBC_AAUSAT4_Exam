@@ -96,30 +96,16 @@ architecture Behavioral of StateMachine is
  
 begin
      reg0 <= WR0Read; --pinout to see the state of WR0Read, at every clock cycle
-     reg1 <= WR1Read; --pinout to see the state of WR1Read, at every clock cycle
+     --reg1 <= WR1Read; --pinout to see the state of WR1Read, at every clock cycle
+     
     
     --process is entered every time a change in variable SignalClockIn, WR0Write or WR1Write happens 
-    process(SignalClockIn, WR0Write, WR1Write, Flag)  
-      begin
-    if (rising_edge(Flag)) then
-            if ReadRegister = 0 then --test if its register 0 we want to read.
-                    if FMSoutput = '1' then --test if its short callsign we are sending.
-                        SignalStoredOut <= storeTmp0(1024 - signalStoreCounterShortreg0-1); --output the stored data
-                    elsif FMSoutput = '0' then --if not shot, test if its long FSM
-                        SignalStoredOut <= storeTmp0(2000 - signalStoreCounterLongReg0-1); --output the stored data
-                    end if;
-            end if; 
-            if ReadRegister = 1 then
-                    if FMSoutput = '1' then
-                        SignalStoredOut <= storeTmp1(1024 - signalStoreCounterShortReg1-1); --output the stored data :o --her er fejlen.
-                    elsif FMSoutput = '0' then
-                        SignalStoredOut <= storeTmp1(2000 - signalStoreCounterLongReg1-1); --output the stored data :o --her er fejlen.
-                end if; 
-            end if;            
-    end if;
-    
+    process(SignalClockIn, Flag)  
+      begin  
        --The following code is executed when the SignalClockIn is on rising edge.
+       --SignalStoredOut <='0';
     if ((SignalClockIn'event and SignalClockIn = '0')) then 
+  
       --resetes the pins WR0Read and WR1Read to 0 every time the the buffers have been read.
       if WR0Read = '1' then
        signalStoreCounterLongReg0 := 1;
@@ -186,10 +172,28 @@ begin
                         end if;
                     end if;
                 end if;
-            end if;                   
+            end if;
+--    if (Flag = '1') then
+--        reg1 <= '1';
+--        SignalStoredOut <= '0';
+--            if ReadRegister = 0 then --test if its register 0 we want to read.
+--                    if FMSoutput = '1' then --test if its short callsign we are sending.
+--                        SignalStoredOut <= '0'; --output the stored data
+--                    elsif FMSoutput = '0' then --if not shot, test if its long FSM
+--                        SignalStoredOut <= '0'; --output the stored data
+--                    end if;
+--            end if; 
+--            if ReadRegister = 1 then
+--                    if FMSoutput = '1' then
+--                        SignalStoredOut <= '0'; --output the stored data :o --her er fejlen.
+--                    elsif FMSoutput = '0' then
+--                        SignalStoredOut <= '0'; --output the stored data :o --her er fejlen.
+--                end if; 
+--            end if;              
+--       end if;                 
     end process;
 
-SignalStoredFlag <= '1' when (WR0Write = '0' and WR0Read = '0') or (WR1Write = '0' and WR1Read = '0') else '0';
+SignalStoredFlag <= Flag;
 Flag <= '1' when (WR0Write = '0' and WR0Read = '0') or (WR1Write = '0' and WR1Read = '0') else '0';
 signalFSMFlag <= FMSoutput;
 
@@ -200,11 +204,11 @@ signalFSMFlag <= FMSoutput;
 --reg1 <= WR1Read;
 
 --A multiplex statment that sets WR0Read HIGH when the data has been read and LOW if WR0Writ is low.
-WR0Read <= '1' when ((signalStoreCounterLongReg0 = (2001)) or (signalStoreCounterShortReg0 = (1024))) and (Register0sent = true) else
+WR0Read <= '1' when ((signalStoreCounterLongReg0 = (2001)) or (signalStoreCounterShortReg0 = (1025))) and (Register0sent = true) else
            '0' when WR0Write = '0';
 
 --A multiplex statment that sets WR1Read HIGH when the data has been read and LOW if WR1Writ is low.           
-WR1Read <= '1' when ((signalStoreCounterLongReg1 = (2001)) or (signalStoreCounterShortReg1 = (1024))) and (Register1sent = true) else
+WR1Read <= '1' when ((signalStoreCounterLongReg1 = (2001)) or (signalStoreCounterShortReg1 = (1025))) and (Register1sent = true) else
            '0' when WR1Write = '0';
 
 --sets the output of the WR0Write to HIGH if both the WR0Read and Register0sentGet is set to true.
@@ -219,6 +223,7 @@ WR1Write <= WR1Read and Register1sentGet;
     --looking for call sign and stores data in buffer.
     process(CLOK) 
         begin   
+        
         if (CLOK'event and CLOK='1') then --Rising edge
         
             if(CS = '0') then --CS low for SPI Reasons. 

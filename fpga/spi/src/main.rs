@@ -5,6 +5,7 @@
 use defmt as _;
 use defmt_rtt as _;
 
+use embedded_hal::digital::v2::IoPin;
 //Defines how we should panic -> Using probe-run.
 use panic_probe as _;
 
@@ -27,7 +28,7 @@ fn main()-> ! {
     //Grabbing RCC from Hal periphals (STM clocks).
     let rcc = dp.RCC.constrain();
     //Setup clock speeds, AHB1 = 180MHz, APB1 = 45MHz MAX 
-    let clocks = rcc.cfgr.use_hse(180.MHz()).pclk1(45.MHz()).freeze();
+    let clocks = rcc.cfgr.use_hse(180.MHz()).pclk1(45.MHz()).pclk2(45.MHz()).freeze();
     //Printing clocks speeds:
     defmt::info!("pclk1 is running at: {}", clocks.pclk1().raw());
     defmt::info!("Sysclock is running at: {}", clocks.sysclk().raw());
@@ -35,14 +36,17 @@ fn main()-> ! {
     let mut _delay = cp.SYST.delay(&clocks);
 
     let gpioa = dp.GPIOA.split(); //Splitting GPIOA into individual pins.
+    let gpiob = dp.GPIOB.split();
     //Declaring pins for SPI1 controller, into their corresponding mode.
     //NOTE: sclk, miso and mosi needs to be put into alternate, so they can use the SPI hardware controller.
     let sclk = gpioa.pa5.into_alternate();
     let miso = gpioa.pa6.into_alternate::<5>();
     let mosi = gpioa.pa7.into_alternate();
     let mut cs = gpioa.pa9.into_push_pull_output();
-    let mut test = gpioa.pa8.into_pull_down_input(); 
-    test.is_low();
+
+    let sclk2 = gpiob.pb10.into_alternate::<5>();
+    let miso2 = gpiob.pb14.into_alternate::<5>();
+
     cs.set_high();//Device active low.
      
     //Settings for SPI mode, Polarity and phase. 
@@ -56,6 +60,13 @@ fn main()-> ! {
         spi_mode, //Setting Mode
         1.MHz(), //Setting clock
         &clocks, //Give a reference to system clocks.
+    );
+
+    let mut spi2 = dp.SPI2.spi(
+        (sclk2, miso2, stm32f4xx_hal::gpio::NoPin),
+        spi_mode, 
+        1.MHz(), 
+        &clocks
     );
     /*
     Note the given SPI frequency might not be exact, as the HAL, tries to find the 
@@ -78,27 +89,174 @@ fn main()-> ! {
         spi.listen(Event::Rxne); //Enables hardware interrupt on RXNE. 
 
     //A few OPCODES for Winbond W25Q128JV
-    let callsign: [u8;6] = [0x4f, 0x5a, 0x36, 0x43, 0x55, 0x42];
+    //let callsign: [u8;6] = [0x4f, 0x5a, 0x36, 0x43, 0x55, 0x42];
     //For OPCODES, that return values, remember to send trailing 0x0 afterwards.
     
-    cs.set_low();
-    spi.write(&callsign).unwrap(); //spi.write() discards any incoming transmissions.
-    cs.set_high(); //End transmission
+    //cs.set_low();
+    //spi.write(&callsign).unwrap(); //spi.write() discards any incoming transmissions.
+    //cs.set_high(); //End transmission
 
 
     //Example of externalising SPI
     // let mut winbond = spi_external::HalSpi::new(spi, cs, embedded_hal::digital::v2::PinState::Low );
     // winbond.init(); //Setting CS to its non active state.
     // winbond.manid(); //Read W25Q128JV Manufacturerid.
-    let mut newtest = gpioa.pa4.into_pull_down_input();
+   
     // let mut output = fpga_in::FpgaIn::new(spi, cs);
-    let mut input = fpga_out::FpgaOut::new(spi, test, newtest);  
-    let mut data = [0u8; 1024];
-    input.read(&mut data);
+    let mut flag = gpioa.pa2.into_pull_down_input();
+    let mut fsm = gpioa.pa3.into_pull_down_input();
 
-    let mut data = [0u8; 1024];
-    input.read(&mut data[124..512]);
+
+    let mut input = fpga_out::FpgaOut::new(spi2, flag, fsm);
+    let mut output = fpga_in::FpgaIn::new(spi,cs);   
+    //let mut data = [0u8; 2000];
+    //input.read(&mut data);
+
+    let mut data = [0u8; 250];
+    let mut storeThisData = [0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,
+    0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,
+    0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,
+    0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,
+    0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,
+    0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,
+    0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,
+    0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,
+    0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,
+    0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,
+    0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,
+    0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,
+    0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,
+    0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,
+    0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,
+    0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,
+    0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,
+    0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55,0x55];
+    //input.read(&mut data[124..512]);
     // input.readFlag();
+    let mut storeThisData = [0u8;256];
+    for i in 0..256 {
+        storeThisData[i] = i as u8;
+    }
+    output.ShortCallsign();
+    output.write(&storeThisData);
+
+    //hvis data er klar, læs den rigtige mænge data. 
+    let mut checkmaker: u8 = 0;
+    if input.readFlag() == true {
+        defmt::info!("Flag Found");
+        if input.readFSM() == false {
+            input.read(&mut data[0..128]);
+            defmt::info!("ShortFrame read");
+            for i in 0..128 {
+                defmt::info!("Datain: {:x}, dataexpected: {:x}", data[i], storeThisData[i]);
+                if data[i] == storeThisData[i]{
+                    defmt::info!("I: {} ",i);
+                    checkmaker = checkmaker + 1;
+                }
+            }
+        }else {
+            input.read(&mut data[0..250]);
+            defmt::info!("LongFrame read");
+            for i in 0..250 {
+                defmt::info!("Datain: {:x}, dataexpected: {:x}", data[i], storeThisData[i]);
+                if data[i] == storeThisData[i]{
+                    defmt::info!("I: {} ",i);
+                    checkmaker = checkmaker + 1;
+                }
+            }
+        }
+    }
+
+    defmt::info!("Checkmaker {}", checkmaker);
+    if checkmaker == 200 {
+        defmt::info!("Long frame is good");
+    }
+    
+    if checkmaker == 128 {
+        defmt::info!("Short frame is good");
+    }
+    
+    output.LongCallsign();
+    output.write(&storeThisData);
+
+    //hvis data er klar, læs den rigtige mænge data. 
+    let mut checkmaker: u8 = 0;
+    if input.readFlag() == true {
+        defmt::info!("Flag Found");
+        if input.readFSM() == true {
+            input.read(&mut data[0..128]);
+            defmt::info!("ShortFrame read");
+            for i in 0..128 {
+                defmt::info!("Datain: {:x}, dataexpected: {:x}", data[i], storeThisData[i]);
+                if data[i] == storeThisData[i]{
+                    defmt::info!("I: {} ",i);
+                    checkmaker = checkmaker + 1;
+                }
+            }
+        }else {
+            input.read(&mut data[0..250]);
+            defmt::info!("LongFrame read");
+            for i in 0..250 {
+                defmt::info!("Datain: {:x}, dataexpected: {:x}", data[i], storeThisData[i]);
+                if data[i] == storeThisData[i]{
+                    defmt::info!("I: {} ",i);
+                    checkmaker = checkmaker + 1;
+                }
+            }
+        }
+    }
+
+    defmt::info!("Checkmaker {}", checkmaker);
+    if checkmaker == 200 {
+        defmt::info!("Long frame is good");
+    }
+    
+    if checkmaker == 128 {
+        defmt::info!("Short frame is good");
+    }
+   
+    output.LongCallsign();
+    output.write(&storeThisData);
+
+    //hvis data er klar, læs den rigtige mænge data. 
+    let mut checkmaker: u8 = 0;
+    if input.readFlag() == true {
+        defmt::info!("Flag Found");
+        if input.readFSM() == true {
+            input.read(&mut data[0..128]);
+            defmt::info!("ShortFrame read");
+            for i in 0..128 {
+                defmt::info!("Datain: {:x}, dataexpected: {:x}", data[i], storeThisData[i]);
+                if data[i] == storeThisData[i]{
+                    defmt::info!("I: {} ",i);
+                    checkmaker = checkmaker + 1;
+                }
+            }
+        }else {
+            input.read(&mut data[0..250]);
+            defmt::info!("LongFrame read");
+            for i in 0..250 {
+                defmt::info!("Datain: {:x}, dataexpected: {:x}", data[i], storeThisData[i]);
+                if data[i] == storeThisData[i]{
+                    defmt::info!("I: {} ",i);
+                    checkmaker = checkmaker + 1;
+                }
+            }
+        }
+    }
+
+    defmt::info!("Checkmaker {}", checkmaker);
+    if checkmaker == 200 {
+        defmt::info!("Long frame is good");
+    }
+    
+    if checkmaker == 128 {
+        defmt::info!("Short frame is good");
+    }
+
+    //output.LongCallsign();
+    //output.write(&storeThisData);
+
     loop {
     }
 

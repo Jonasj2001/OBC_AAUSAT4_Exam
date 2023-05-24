@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.tcl"
+  variable script "C:/Users/paw/Desktop/AAUSAT6_P4/projects/fpga/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.tcl"
   variable category "vivado_impl"
 }
 
@@ -132,13 +132,13 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.cache/wt} [current_project]
-  set_property parent.project_path {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.xpr} [current_project]
-  set_property ip_output_repo {{C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.cache/ip}} [current_project]
+  set_property webtalk.parent_dir C:/Users/paw/Desktop/AAUSAT6_P4/projects/fpga/FPGAStateMachineProject/FPGAStateMachineProject.cache/wt [current_project]
+  set_property parent.project_path C:/Users/paw/Desktop/AAUSAT6_P4/projects/fpga/FPGAStateMachineProject/FPGAStateMachineProject.xpr [current_project]
+  set_property ip_output_repo C:/Users/paw/Desktop/AAUSAT6_P4/projects/fpga/FPGAStateMachineProject/FPGAStateMachineProject.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet {{C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp}}
+  add_files -quiet C:/Users/paw/Desktop/AAUSAT6_P4/projects/fpga/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp
 OPTRACE "read constraints: implementation" START { }
   read_xdc {{C:/Users/paw/Desktop/Alle semestre/P4/project_1/Cmod-A7-Master.xdc}}
 OPTRACE "read constraints: implementation" END { }
