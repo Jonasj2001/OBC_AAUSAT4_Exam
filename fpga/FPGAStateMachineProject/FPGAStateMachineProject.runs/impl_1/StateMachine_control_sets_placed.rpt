@@ -1,0 +1,93 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
+| Date         : Tue May 16 12:49:51 2023
+| Host         : LAPTOP-5FSB23OP running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file StateMachine_control_sets_placed.rpt
+| Design       : StateMachine
+| Device       : xc7a35t
+-----------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    15 |
+|    Minimum number of control sets                        |    15 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    81 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    15 |
+| >= 0 to < 4        |     7 |
+| >= 4 to < 6        |     1 |
+| >= 6 to < 8        |     0 |
+| >= 8 to < 10       |     0 |
+| >= 10 to < 12      |     1 |
+| >= 12 to < 14      |     0 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     6 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             210 |          110 |
+| No           | No                    | Yes                    |               3 |            3 |
+| No           | Yes                   | No                     |              37 |           18 |
+| Yes          | No                    | No                     |            4093 |         1516 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |               0 |            0 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++--------------------------+-------------------------+-------------------+------------------+----------------+--------------+
+|       Clock Signal       |      Enable Signal      |  Set/Reset Signal | Slice Load Count | Bel Load Count | Bels / Slice |
++--------------------------+-------------------------+-------------------+------------------+----------------+--------------+
+|  InfoOutput_reg[0]/G0    |                         |                   |                1 |              1 |         1.00 |
+|  Register0sentGet37_out  |                         | Register0sentGet2 |                1 |              1 |         1.00 |
+|  Register0sentGet37_out  |                         | CLR_reg_n_0       |                1 |              1 |         1.00 |
+|  CLOK_IBUF_BUFG          |                         | Q_i_1_n_0         |                1 |              1 |         1.00 |
+|  CLOK_IBUF_BUFG          | p_3_in                  |                   |                1 |              1 |         1.00 |
+|  signalStoredFlag_OBUF   |                         |                   |                1 |              1 |         1.00 |
+|  CLOK_IBUF_BUFG          |                         | CLR_i_2_n_0       |                3 |              3 |         1.00 |
+|  WR1Read_reg_i_2_n_0     |                         | WR1Read0          |                1 |              4 |         4.00 |
+|  CLOK_IBUF_BUFG          |                         | CLR_reg_n_0       |                4 |             11 |         2.75 |
+|  WR0Read_reg_i_2_n_0     |                         | WR0Read0          |               10 |             19 |         1.90 |
+|  CLOK_IBUF_BUFG          | CLR                     |                   |               10 |             34 |         3.40 |
+|  CLOK_IBUF_BUFG          | tmp[55]_i_1_n_0         |                   |               12 |             56 |         4.67 |
+| ~SignalClockIn_IBUF_BUFG |                         |                   |              108 |            208 |         1.93 |
+|  CLOK_IBUF_BUFG          | storeTmp0[1999]_i_1_n_0 |                   |              785 |           2001 |         2.55 |
+|  CLOK_IBUF_BUFG          | storeTmp1__0            |                   |              708 |           2001 |         2.83 |
++--------------------------+-------------------------+-------------------+------------------+----------------+--------------+
+
+

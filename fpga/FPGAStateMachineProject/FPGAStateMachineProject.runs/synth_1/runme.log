@@ -1,0 +1,299 @@
+
+*** Running vivado
+    with args -log StateMachine.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source StateMachine.tcl
+
+
+
+****** Vivado v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source StateMachine.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp}
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top StateMachine -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 17432
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:05 . Memory (MB): peak = 1817.277 ; gain = 408.230
+---------------------------------------------------------------------------------
+
+*** Running vivado
+    with args -log StateMachine.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source StateMachine.tcl
+
+
+
+****** Vivado v2022.2 (64-bit)
+  **** SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+  **** IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+source StateMachine.tcl -notrace
+Command: read_checkpoint -auto_incremental -incremental {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp}
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top StateMachine -part xc7a35tcpg236-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 9400
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1814.613 ; gain = 409.535
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'StateMachine' [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:55]
+WARNING: [Synth 8-613] shared variable will be implemented as local to architecture [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:67]
+WARNING: [Synth 8-613] shared variable will be implemented as local to architecture [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:68]
+WARNING: [Synth 8-613] shared variable will be implemented as local to architecture [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:70]
+WARNING: [Synth 8-613] shared variable will be implemented as local to architecture [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:71]
+WARNING: [Synth 8-613] shared variable will be implemented as local to architecture [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:73]
+WARNING: [Synth 8-613] shared variable will be implemented as local to architecture [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:74]
+WARNING: [Synth 8-613] shared variable will be implemented as local to architecture [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:79]
+WARNING: [Synth 8-613] shared variable will be implemented as local to architecture [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:80]
+WARNING: [Synth 8-613] shared variable will be implemented as local to architecture [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:82]
+WARNING: [Synth 8-613] shared variable will be implemented as local to architecture [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:83]
+WARNING: [Synth 8-614] signal 'tmp' is read in the process but is not in the sensitivity list [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:220]
+WARNING: [Synth 8-614] signal 'CLR' is read in the process but is not in the sensitivity list [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:220]
+WARNING: [Synth 8-614] signal 'WR0Write' is read in the process but is not in the sensitivity list [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:220]
+WARNING: [Synth 8-614] signal 'WR1Write' is read in the process but is not in the sensitivity list [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:220]
+INFO: [Synth 8-256] done synthesizing module 'StateMachine' (0#1) [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:55]
+WARNING: [Synth 8-5787] Register SignalStoredOut_reg in module StateMachine is clocked by two different clocks in the same process. This may cause simulation mismatches and synthesis errors. Consider using different process statements  [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:107]
+WARNING: [Synth 8-5787] Register SignalStoredOut_reg in module StateMachine is clocked by two different clocks in the same process. This may cause simulation mismatches and synthesis errors. Consider using different process statements  [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:107]
+WARNING: [Synth 8-7129] Port SignalGetInfo in module StateMachine is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1945.789 ; gain = 540.711
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1963.719 ; gain = 558.641
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1963.719 ; gain = 558.641
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.038 . Memory (MB): peak = 1963.719 ; gain = 0.000
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/paw/Desktop/Alle semestre/P4/project_1/Cmod-A7-Master.xdc]
+Finished Parsing XDC File [C:/Users/paw/Desktop/Alle semestre/P4/project_1/Cmod-A7-Master.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Users/paw/Desktop/Alle semestre/P4/project_1/Cmod-A7-Master.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/StateMachine_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/StateMachine_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2070.324 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 2070.324 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [C:/Xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 2070.324 ; gain = 665.246
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 2070.324 ; gain = 665.246
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:16 . Memory (MB): peak = 2070.324 ; gain = 665.246
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-327] inferring latch for variable 'WR1Read_reg' [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:207]
+WARNING: [Synth 8-327] inferring latch for variable 'FSM_reg' [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:241]
+WARNING: [Synth 8-327] inferring latch for variable 'WR0Read_reg' [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:203]
+WARNING: [Synth 8-327] inferring latch for variable 'InfoOutput_reg' [C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/sources_1/new/StateMachine.vhd:318]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:18 . Memory (MB): peak = 2070.324 ; gain = 665.246
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input   32 Bit       Adders := 6     
+	   2 Input   11 Bit       Adders := 9     
+	   2 Input    3 Bit       Adders := 1     
++---Registers : 
+	               56 Bit    Registers := 1     
+	               32 Bit    Registers := 5     
+	               11 Bit    Registers := 1     
+	                1 Bit    Registers := 12    
++---Muxes : 
+	   2 Input   32 Bit        Muxes := 12    
+	   2 Input    5 Bit        Muxes := 1     
+	   2 Input    4 Bit        Muxes := 1     
+	   2 Input    2 Bit        Muxes := 1     
+	   3 Input    2 Bit        Muxes := 2     
+	   2 Input    1 Bit        Muxes := 19    
+	   3 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-7129] Port SignalGetInfo in module StateMachine is either unconnected or has no load
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:21 ; elapsed = 00:00:33 . Memory (MB): peak = 2268.836 ; gain = 863.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:38 . Memory (MB): peak = 2268.836 ; gain = 863.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:39 . Memory (MB): peak = 2268.836 ; gain = 863.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:00:41 . Memory (MB): peak = 2268.836 ; gain = 863.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:46 . Memory (MB): peak = 2268.836 ; gain = 863.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:46 . Memory (MB): peak = 2268.836 ; gain = 863.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:46 . Memory (MB): peak = 2268.836 ; gain = 863.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:46 . Memory (MB): peak = 2268.836 ; gain = 863.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:47 . Memory (MB): peak = 2268.836 ; gain = 863.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:47 . Memory (MB): peak = 2268.836 ; gain = 863.758
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     2|
+|2     |CARRY4 |    56|
+|3     |LUT1   |     3|
+|4     |LUT2   |   281|
+|5     |LUT3   |  1949|
+|6     |LUT4   |  2192|
+|7     |LUT5   |   221|
+|8     |LUT6   |  3520|
+|9     |MUXF7  |  1314|
+|10    |MUXF8  |   641|
+|11    |FDCE   |     1|
+|12    |FDPE   |     2|
+|13    |FDRE   |  4313|
+|14    |LDC    |     1|
+|15    |LDCP   |     1|
+|16    |LDP    |    24|
+|17    |IBUF   |     4|
+|18    |OBUF   |     9|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:47 . Memory (MB): peak = 2268.836 ; gain = 863.758
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 6 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:45 . Memory (MB): peak = 2268.836 ; gain = 757.152
+Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:47 . Memory (MB): peak = 2268.836 ; gain = 863.758
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.129 . Memory (MB): peak = 2268.836 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 2037 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'StateMachine' is not ideal for floorplanning, since the cellview 'StateMachine' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2268.836 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 26 instances were transformed.
+  LDC => LDCE: 1 instance 
+  LDCP => LDCP (GND, LDCE, LUT3(x2), VCC): 1 instance 
+  LDP => LDPE: 24 instances
+
+Synth Design complete, checksum: 2131a8ff
+INFO: [Common 17-83] Releasing license: Synthesis
+25 Infos, 24 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:37 ; elapsed = 00:00:53 . Memory (MB): peak = 2268.836 ; gain = 1241.738
+INFO: [Common 17-1381] The checkpoint 'C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file StateMachine_utilization_synth.rpt -pb StateMachine_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Tue May 16 12:49:02 2023...

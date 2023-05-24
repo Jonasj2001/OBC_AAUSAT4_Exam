@@ -1,0 +1,43 @@
+[package]
+authors = ["RDyb"]
+name = "rtic_playtime"
+edition = "2021"
+version = "0.1.0"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+cortex-m-rtic = "1.1.3" # RTIC framework for concurrency
+defmt = "0.3.2" # Logging framework
+defmt-rtt = "0.4.0" # Logging framework for RTT
+panic-probe = { version = "0.3.0", features = [ "print-defmt"] } # Panic handler for defmt
+embedded-hal = "0.2.7" # HAL framework for embedded devices
+dwt-systick-monotonic = {version = "1.1.0"} # Monotonic timer
+rtic-monotonic = "1" # Monotonic timer for RTIC
+fugit = "0.3.6" # Time library for abstraction of time units
+heapless = "0.7.16" # Heapless data structures alternative to std
+bxcan = { version = "0.7.0", features = ["unstable-defmt"] } # CAN driver
+#stm32f446-rtic = { git = "https://github.com/Awlaursen/stm32f446-rtic", branch = "main" } # RTIC framework for STM32F446
+time = {version = "0.3.20", default-features = false, features=["macros"]}
+flash = {path = "../include/memory/"}
+
+[dependencies.cortex-m] # Cortex-M core peripherals
+version = "0.7.4"
+features = [ "critical-section-single-core" ] # Needed by defmt-rtt
+
+
+[dependencies.stm32f4xx-hal] # HAL for STM32F4xx devices
+version = "0.15.0"
+features = [
+    "stm32f446",
+    "rt",
+    "rtic",
+    "can",
+]
+
+[dev-dependencies]
+cortex-m-rt = "0.7"
+
+[features]
+clean = []
+nowrite = []

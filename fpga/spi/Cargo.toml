@@ -1,0 +1,23 @@
+[package]
+name = "spi_example"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+embedded-hal = "0.2"
+nb = "1"
+cortex-m-rt = "0.7"
+#panic-halt = "0.2"
+panic-probe = "0.3.1"
+defmt = "0.3"
+defmt-rtt = "0.4" # Logging framework for RTT
+
+[dependencies.stm32f4xx-hal]
+version  = "0.15.0"
+features = ["stm32f446"]
+
+[dependencies.cortex-m] # Cortex-M core peripherals
+version = "0.7.4"
+features = [ "critical-section-single-core" ] # Needed by defmt-rtt

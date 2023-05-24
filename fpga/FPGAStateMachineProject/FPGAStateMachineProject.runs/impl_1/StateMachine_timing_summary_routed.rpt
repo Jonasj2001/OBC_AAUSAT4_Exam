@@ -1,0 +1,1302 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
+| Date         : Tue May 16 12:50:26 2023
+| Host         : LAPTOP-5FSB23OP running 64-bit major release  (build 9200)
+| Command      : report_timing_summary -max_paths 10 -report_unconstrained -file StateMachine_timing_summary_routed.rpt -pb StateMachine_timing_summary_routed.pb -rpx StateMachine_timing_summary_routed.rpx -warn_on_violation
+| Design       : StateMachine
+| Device       : 7a35t-cpg236
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Summary Report
+
+------------------------------------------------------------------------------------------------
+| Timer Settings
+| --------------
+------------------------------------------------------------------------------------------------
+
+  Enable Multi Corner Analysis               :  Yes
+  Enable Pessimism Removal                   :  Yes
+  Pessimism Removal Resolution               :  Nearest Common Node
+  Enable Input Delay Default Clock           :  No
+  Enable Preset / Clear Arcs                 :  No
+  Disable Flight Delays                      :  No
+  Ignore I/O Paths                           :  No
+  Timing Early Launch at Borrowing Latches   :  No
+  Borrow Time for Max Delay Exceptions       :  Yes
+  Merge Timing Exceptions                    :  Yes
+
+  Corner  Analyze    Analyze    
+  Name    Max Paths  Min Paths  
+  ------  ---------  ---------  
+  Slow    Yes        Yes        
+  Fast    Yes        Yes        
+
+
+------------------------------------------------------------------------------------------------
+| Report Methodology
+| ------------------
+------------------------------------------------------------------------------------------------
+
+Rule       Severity          Description                     Violations  
+---------  ----------------  ------------------------------  ----------  
+TIMING-17  Critical Warning  Non-clocked sequential cell     1000        
+LUTAR-1    Warning           LUT drives async reset alert    5           
+TIMING-20  Warning           Non-clocked latch               26          
+LATCH-1    Advisory          Existing latches in the design  1           
+
+Note: This report is based on the most recent report_methodology run and may not be up-to-date. Run report_methodology on the current design for the latest report.
+
+
+
+check_timing report
+
+Table of Contents
+-----------------
+1. checking no_clock (4524)
+2. checking constant_clock (0)
+3. checking pulse_width_clock (0)
+4. checking unconstrained_internal_endpoints (8473)
+5. checking no_input_delay (2)
+6. checking no_output_delay (9)
+7. checking multiple_clock (0)
+8. checking generated_clocks (0)
+9. checking loops (0)
+10. checking partial_input_delay (0)
+11. checking partial_output_delay (0)
+12. checking latch_loops (2)
+
+1. checking no_clock (4524)
+---------------------------
+ There are 4108 register/latch pins with no clock driven by root clock pin: CLOK (HIGH)
+
+ There are 208 register/latch pins with no clock driven by root clock pin: SignalClockIn (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: CLR_reg/Q (HIGH)
+
+ There are 22 register/latch pins with no clock driven by root clock pin: Register0sentGet_reg/Q (HIGH)
+
+ There are 7 register/latch pins with no clock driven by root clock pin: Register1sentGet_reg/Q (HIGH)
+
+ There are 4 register/latch pins with no clock driven by root clock pin: WR0Read_reg/Q (HIGH)
+
+ There are 4 register/latch pins with no clock driven by root clock pin: WR1Read_reg_rep__1/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[0]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[10]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[11]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[12]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[13]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[14]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[15]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[16]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[17]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[18]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[19]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[1]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[20]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[21]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[22]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[23]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[24]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[25]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[26]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[27]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[28]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[29]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[2]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[30]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[31]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[32]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[33]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[34]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[35]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[36]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[37]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[38]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[39]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[3]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[40]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[41]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[42]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[43]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[44]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[45]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[46]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[47]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[48]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[49]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[4]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[50]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[51]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[52]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[53]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[54]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[55]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[5]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[6]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[7]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[8]/Q (HIGH)
+
+ There are 3 register/latch pins with no clock driven by root clock pin: tmp_reg[9]/Q (HIGH)
+
+
+2. checking constant_clock (0)
+------------------------------
+ There are 0 register/latch pins with constant_clock.
+
+
+3. checking pulse_width_clock (0)
+---------------------------------
+ There are 0 register/latch pins which need pulse_width check
+
+
+4. checking unconstrained_internal_endpoints (8473)
+---------------------------------------------------
+ There are 8473 pins that are not constrained for maximum delay. (HIGH)
+
+ There are 0 pins that are not constrained for maximum delay due to constant clock.
+
+
+5. checking no_input_delay (2)
+------------------------------
+ There are 2 input ports with no input delay specified. (HIGH)
+
+ There are 0 input ports with no input delay but user has a false path constraint.
+
+
+6. checking no_output_delay (9)
+-------------------------------
+ There are 9 ports with no output delay specified. (HIGH)
+
+ There are 0 ports with no output delay but user has a false path constraint
+
+ There are 0 ports with no output delay but with a timing clock defined on it or propagating through it
+
+
+7. checking multiple_clock (0)
+------------------------------
+ There are 0 register/latch pins with multiple clocks.
+
+
+8. checking generated_clocks (0)
+--------------------------------
+ There are 0 generated clocks that are not connected to a clock source.
+
+
+9. checking loops (0)
+---------------------
+ There are 0 combinational loops in the design.
+
+
+10. checking partial_input_delay (0)
+------------------------------------
+ There are 0 input ports with partial input delay specified.
+
+
+11. checking partial_output_delay (0)
+-------------------------------------
+ There are 0 ports with partial output delay specified.
+
+
+12. checking latch_loops (2)
+----------------------------
+ There are 2 combinational latch loops in the design through latch input (HIGH)
+
+
+
+------------------------------------------------------------------------------------------------
+| Design Timing Summary
+| ---------------------
+------------------------------------------------------------------------------------------------
+
+    WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+    -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+        inf        0.000                      0                 8482          inf        0.000                      0                 8482           NA           NA                      NA                    NA  
+
+
+There are no user specified timing constraints.
+
+
+------------------------------------------------------------------------------------------------
+| Clock Summary
+| -------------
+------------------------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------------------------
+| Intra Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
+-----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Inter Clock Table
+| -----------------
+------------------------------------------------------------------------------------------------
+
+From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| Other Path Groups Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints  
+----------    ----------    --------          -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------  
+
+
+------------------------------------------------------------------------------------------------
+| User Ignored Path Table
+| -----------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock    
+----------    ----------    --------    
+
+
+------------------------------------------------------------------------------------------------
+| Unconstrained Path Table
+| ------------------------
+------------------------------------------------------------------------------------------------
+
+Path Group    From Clock    To Clock    
+----------    ----------    --------    
+(none)                                    
+
+
+------------------------------------------------------------------------------------------------
+| Timing Details
+| --------------
+------------------------------------------------------------------------------------------------
+
+
+--------------------------------------------------------------------------------------
+Path Group:  (none)
+From Clock:  
+  To Clock:  
+
+Max Delay          8482 Endpoints
+Min Delay          8482 Endpoints
+--------------------------------------------------------------------------------------
+
+
+Max Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 signalStoreCounterLongReg0_reg[1]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            signalStoreCounterShortReg1_reg[3]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        22.739ns  (logic 5.051ns (22.213%)  route 17.688ns (77.787%))
+  Logic Levels:           26  (CARRY4=15 FDRE=1 LUT2=2 LUT4=2 LUT6=6)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y41         FDRE                         0.000     0.000 r  signalStoreCounterLongReg0_reg[1]/C
+    SLICE_X49Y41         FDRE (Prop_fdre_C_Q)         0.459     0.459 r  signalStoreCounterLongReg0_reg[1]/Q
+                         net (fo=513, routed)         6.288     6.747    signalStoreCounterLongReg0_reg_n_0_[1]
+    SLICE_X51Y36         LUT2 (Prop_lut2_I0_O)        0.124     6.871 r  signalStoreCounterLongReg0[3]_i_6/O
+                         net (fo=1, routed)           0.000     6.871    data1[1]
+    SLICE_X51Y36         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.421 r  signalStoreCounterLongReg0_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.421    signalStoreCounterLongReg0_reg[3]_i_2_n_0
+    SLICE_X51Y37         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.535 r  signalStoreCounterLongReg0_reg[7]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.535    signalStoreCounterLongReg0_reg[7]_i_2_n_0
+    SLICE_X51Y38         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.649 r  signalStoreCounterLongReg0_reg[11]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.649    signalStoreCounterLongReg0_reg[11]_i_2_n_0
+    SLICE_X51Y39         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.763 r  signalStoreCounterLongReg0_reg[15]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.763    signalStoreCounterLongReg0_reg[15]_i_2_n_0
+    SLICE_X51Y40         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.877 r  signalStoreCounterLongReg0_reg[19]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.877    signalStoreCounterLongReg0_reg[19]_i_2_n_0
+    SLICE_X51Y41         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.991 r  signalStoreCounterLongReg0_reg[23]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.991    signalStoreCounterLongReg0_reg[23]_i_2_n_0
+    SLICE_X51Y42         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.105 r  signalStoreCounterLongReg0_reg[27]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     8.105    signalStoreCounterLongReg0_reg[27]_i_2_n_0
+    SLICE_X51Y43         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     8.418 r  signalStoreCounterLongReg0_reg[31]_i_2/O[3]
+                         net (fo=3, routed)           1.255     9.672    data0[31]
+    SLICE_X50Y39         LUT6 (Prop_lut6_I4_O)        0.306     9.978 f  ReadRegister[31]_i_29/O
+                         net (fo=1, routed)           0.428    10.407    ReadRegister[31]_i_29_n_0
+    SLICE_X50Y40         LUT6 (Prop_lut6_I1_O)        0.124    10.531 f  ReadRegister[31]_i_13/O
+                         net (fo=30, routed)          1.370    11.900    ReadRegister[31]_i_13_n_0
+    SLICE_X56Y38         LUT2 (Prop_lut2_I1_O)        0.124    12.024 r  ReadRegister[4]_i_6/O
+                         net (fo=1, routed)           0.000    12.024    ReadRegister[4]_i_6_n_0
+    SLICE_X56Y38         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    12.557 r  ReadRegister_reg[4]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.557    ReadRegister_reg[4]_i_2_n_0
+    SLICE_X56Y39         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.674 r  ReadRegister_reg[8]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.674    ReadRegister_reg[8]_i_2_n_0
+    SLICE_X56Y40         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.791 r  ReadRegister_reg[12]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.791    ReadRegister_reg[12]_i_2_n_0
+    SLICE_X56Y41         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.908 r  ReadRegister_reg[16]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.908    ReadRegister_reg[16]_i_2_n_0
+    SLICE_X56Y42         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    13.025 r  ReadRegister_reg[20]_i_4/CO[3]
+                         net (fo=1, routed)           0.000    13.025    ReadRegister_reg[20]_i_4_n_0
+    SLICE_X56Y43         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    13.142 r  ReadRegister_reg[24]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    13.142    ReadRegister_reg[24]_i_2_n_0
+    SLICE_X56Y44         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323    13.465 f  ReadRegister_reg[28]_i_2/O[1]
+                         net (fo=3, routed)           0.988    14.453    ReadRegister2[26]
+    SLICE_X57Y41         LUT4 (Prop_lut4_I2_O)        0.306    14.759 f  ReadRegister[31]_i_18/O
+                         net (fo=2, routed)           0.827    15.586    ReadRegister[31]_i_18_n_0
+    SLICE_X54Y40         LUT4 (Prop_lut4_I0_O)        0.124    15.710 f  ReadRegister[31]_i_10/O
+                         net (fo=1, routed)           0.282    15.992    ReadRegister[31]_i_10_n_0
+    SLICE_X54Y40         LUT6 (Prop_lut6_I2_O)        0.124    16.116 f  ReadRegister[31]_i_4/O
+                         net (fo=3, routed)           0.577    16.693    ReadRegister[31]_i_4_n_0
+    SLICE_X57Y42         LUT6 (Prop_lut6_I1_O)        0.124    16.817 f  ReadRegister[0]_i_11/O
+                         net (fo=2, routed)           0.419    17.235    ReadRegister[0]_i_11_n_0
+    SLICE_X57Y40         LUT6 (Prop_lut6_I4_O)        0.124    17.359 r  ReadRegister[0]_i_2/O
+                         net (fo=83, routed)          4.668    22.027    ReadRegister[0]_i_2_n_0
+    SLICE_X38Y12         LUT6 (Prop_lut6_I1_O)        0.124    22.151 r  signalStoreCounterShortReg1[3]_i_1/O
+                         net (fo=1, routed)           0.587    22.739    signalStoreCounterShortReg1[3]
+    SLICE_X38Y12         FDRE                                         r  signalStoreCounterShortReg1_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 signalStoreCounterLongReg0_reg[1]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            signalStoreCounterShortReg1_reg[1]_rep__2/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        22.458ns  (logic 5.051ns (22.491%)  route 17.407ns (77.509%))
+  Logic Levels:           26  (CARRY4=15 FDRE=1 LUT2=2 LUT4=2 LUT6=6)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y41         FDRE                         0.000     0.000 r  signalStoreCounterLongReg0_reg[1]/C
+    SLICE_X49Y41         FDRE (Prop_fdre_C_Q)         0.459     0.459 r  signalStoreCounterLongReg0_reg[1]/Q
+                         net (fo=513, routed)         6.288     6.747    signalStoreCounterLongReg0_reg_n_0_[1]
+    SLICE_X51Y36         LUT2 (Prop_lut2_I0_O)        0.124     6.871 r  signalStoreCounterLongReg0[3]_i_6/O
+                         net (fo=1, routed)           0.000     6.871    data1[1]
+    SLICE_X51Y36         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.421 r  signalStoreCounterLongReg0_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.421    signalStoreCounterLongReg0_reg[3]_i_2_n_0
+    SLICE_X51Y37         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.535 r  signalStoreCounterLongReg0_reg[7]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.535    signalStoreCounterLongReg0_reg[7]_i_2_n_0
+    SLICE_X51Y38         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.649 r  signalStoreCounterLongReg0_reg[11]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.649    signalStoreCounterLongReg0_reg[11]_i_2_n_0
+    SLICE_X51Y39         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.763 r  signalStoreCounterLongReg0_reg[15]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.763    signalStoreCounterLongReg0_reg[15]_i_2_n_0
+    SLICE_X51Y40         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.877 r  signalStoreCounterLongReg0_reg[19]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.877    signalStoreCounterLongReg0_reg[19]_i_2_n_0
+    SLICE_X51Y41         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.991 r  signalStoreCounterLongReg0_reg[23]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.991    signalStoreCounterLongReg0_reg[23]_i_2_n_0
+    SLICE_X51Y42         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.105 r  signalStoreCounterLongReg0_reg[27]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     8.105    signalStoreCounterLongReg0_reg[27]_i_2_n_0
+    SLICE_X51Y43         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     8.418 r  signalStoreCounterLongReg0_reg[31]_i_2/O[3]
+                         net (fo=3, routed)           1.255     9.672    data0[31]
+    SLICE_X50Y39         LUT6 (Prop_lut6_I4_O)        0.306     9.978 f  ReadRegister[31]_i_29/O
+                         net (fo=1, routed)           0.428    10.407    ReadRegister[31]_i_29_n_0
+    SLICE_X50Y40         LUT6 (Prop_lut6_I1_O)        0.124    10.531 f  ReadRegister[31]_i_13/O
+                         net (fo=30, routed)          1.370    11.900    ReadRegister[31]_i_13_n_0
+    SLICE_X56Y38         LUT2 (Prop_lut2_I1_O)        0.124    12.024 r  ReadRegister[4]_i_6/O
+                         net (fo=1, routed)           0.000    12.024    ReadRegister[4]_i_6_n_0
+    SLICE_X56Y38         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    12.557 r  ReadRegister_reg[4]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.557    ReadRegister_reg[4]_i_2_n_0
+    SLICE_X56Y39         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.674 r  ReadRegister_reg[8]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.674    ReadRegister_reg[8]_i_2_n_0
+    SLICE_X56Y40         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.791 r  ReadRegister_reg[12]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.791    ReadRegister_reg[12]_i_2_n_0
+    SLICE_X56Y41         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.908 r  ReadRegister_reg[16]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.908    ReadRegister_reg[16]_i_2_n_0
+    SLICE_X56Y42         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    13.025 r  ReadRegister_reg[20]_i_4/CO[3]
+                         net (fo=1, routed)           0.000    13.025    ReadRegister_reg[20]_i_4_n_0
+    SLICE_X56Y43         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    13.142 r  ReadRegister_reg[24]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    13.142    ReadRegister_reg[24]_i_2_n_0
+    SLICE_X56Y44         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323    13.465 f  ReadRegister_reg[28]_i_2/O[1]
+                         net (fo=3, routed)           0.988    14.453    ReadRegister2[26]
+    SLICE_X57Y41         LUT4 (Prop_lut4_I2_O)        0.306    14.759 f  ReadRegister[31]_i_18/O
+                         net (fo=2, routed)           0.827    15.586    ReadRegister[31]_i_18_n_0
+    SLICE_X54Y40         LUT4 (Prop_lut4_I0_O)        0.124    15.710 f  ReadRegister[31]_i_10/O
+                         net (fo=1, routed)           0.282    15.992    ReadRegister[31]_i_10_n_0
+    SLICE_X54Y40         LUT6 (Prop_lut6_I2_O)        0.124    16.116 f  ReadRegister[31]_i_4/O
+                         net (fo=3, routed)           0.577    16.693    ReadRegister[31]_i_4_n_0
+    SLICE_X57Y42         LUT6 (Prop_lut6_I1_O)        0.124    16.817 f  ReadRegister[0]_i_11/O
+                         net (fo=2, routed)           0.419    17.235    ReadRegister[0]_i_11_n_0
+    SLICE_X57Y40         LUT6 (Prop_lut6_I4_O)        0.124    17.359 r  ReadRegister[0]_i_2/O
+                         net (fo=83, routed)          4.975    22.334    ReadRegister[0]_i_2_n_0
+    SLICE_X40Y11         LUT6 (Prop_lut6_I1_O)        0.124    22.458 r  signalStoreCounterShortReg1[1]_rep__2_i_1/O
+                         net (fo=1, routed)           0.000    22.458    signalStoreCounterShortReg1[1]_rep__2_i_1_n_0
+    SLICE_X40Y11         FDRE                                         r  signalStoreCounterShortReg1_reg[1]_rep__2/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 signalStoreCounterLongReg0_reg[1]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            signalStoreCounterShortReg1_reg[1]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        22.455ns  (logic 5.051ns (22.494%)  route 17.404ns (77.506%))
+  Logic Levels:           26  (CARRY4=15 FDRE=1 LUT2=2 LUT4=2 LUT6=6)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y41         FDRE                         0.000     0.000 r  signalStoreCounterLongReg0_reg[1]/C
+    SLICE_X49Y41         FDRE (Prop_fdre_C_Q)         0.459     0.459 r  signalStoreCounterLongReg0_reg[1]/Q
+                         net (fo=513, routed)         6.288     6.747    signalStoreCounterLongReg0_reg_n_0_[1]
+    SLICE_X51Y36         LUT2 (Prop_lut2_I0_O)        0.124     6.871 r  signalStoreCounterLongReg0[3]_i_6/O
+                         net (fo=1, routed)           0.000     6.871    data1[1]
+    SLICE_X51Y36         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.421 r  signalStoreCounterLongReg0_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.421    signalStoreCounterLongReg0_reg[3]_i_2_n_0
+    SLICE_X51Y37         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.535 r  signalStoreCounterLongReg0_reg[7]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.535    signalStoreCounterLongReg0_reg[7]_i_2_n_0
+    SLICE_X51Y38         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.649 r  signalStoreCounterLongReg0_reg[11]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.649    signalStoreCounterLongReg0_reg[11]_i_2_n_0
+    SLICE_X51Y39         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.763 r  signalStoreCounterLongReg0_reg[15]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.763    signalStoreCounterLongReg0_reg[15]_i_2_n_0
+    SLICE_X51Y40         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.877 r  signalStoreCounterLongReg0_reg[19]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.877    signalStoreCounterLongReg0_reg[19]_i_2_n_0
+    SLICE_X51Y41         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.991 r  signalStoreCounterLongReg0_reg[23]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.991    signalStoreCounterLongReg0_reg[23]_i_2_n_0
+    SLICE_X51Y42         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.105 r  signalStoreCounterLongReg0_reg[27]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     8.105    signalStoreCounterLongReg0_reg[27]_i_2_n_0
+    SLICE_X51Y43         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     8.418 r  signalStoreCounterLongReg0_reg[31]_i_2/O[3]
+                         net (fo=3, routed)           1.255     9.672    data0[31]
+    SLICE_X50Y39         LUT6 (Prop_lut6_I4_O)        0.306     9.978 f  ReadRegister[31]_i_29/O
+                         net (fo=1, routed)           0.428    10.407    ReadRegister[31]_i_29_n_0
+    SLICE_X50Y40         LUT6 (Prop_lut6_I1_O)        0.124    10.531 f  ReadRegister[31]_i_13/O
+                         net (fo=30, routed)          1.370    11.900    ReadRegister[31]_i_13_n_0
+    SLICE_X56Y38         LUT2 (Prop_lut2_I1_O)        0.124    12.024 r  ReadRegister[4]_i_6/O
+                         net (fo=1, routed)           0.000    12.024    ReadRegister[4]_i_6_n_0
+    SLICE_X56Y38         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    12.557 r  ReadRegister_reg[4]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.557    ReadRegister_reg[4]_i_2_n_0
+    SLICE_X56Y39         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.674 r  ReadRegister_reg[8]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.674    ReadRegister_reg[8]_i_2_n_0
+    SLICE_X56Y40         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.791 r  ReadRegister_reg[12]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.791    ReadRegister_reg[12]_i_2_n_0
+    SLICE_X56Y41         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.908 r  ReadRegister_reg[16]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.908    ReadRegister_reg[16]_i_2_n_0
+    SLICE_X56Y42         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    13.025 r  ReadRegister_reg[20]_i_4/CO[3]
+                         net (fo=1, routed)           0.000    13.025    ReadRegister_reg[20]_i_4_n_0
+    SLICE_X56Y43         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    13.142 r  ReadRegister_reg[24]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    13.142    ReadRegister_reg[24]_i_2_n_0
+    SLICE_X56Y44         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323    13.465 f  ReadRegister_reg[28]_i_2/O[1]
+                         net (fo=3, routed)           0.988    14.453    ReadRegister2[26]
+    SLICE_X57Y41         LUT4 (Prop_lut4_I2_O)        0.306    14.759 f  ReadRegister[31]_i_18/O
+                         net (fo=2, routed)           0.827    15.586    ReadRegister[31]_i_18_n_0
+    SLICE_X54Y40         LUT4 (Prop_lut4_I0_O)        0.124    15.710 f  ReadRegister[31]_i_10/O
+                         net (fo=1, routed)           0.282    15.992    ReadRegister[31]_i_10_n_0
+    SLICE_X54Y40         LUT6 (Prop_lut6_I2_O)        0.124    16.116 f  ReadRegister[31]_i_4/O
+                         net (fo=3, routed)           0.577    16.693    ReadRegister[31]_i_4_n_0
+    SLICE_X57Y42         LUT6 (Prop_lut6_I1_O)        0.124    16.817 f  ReadRegister[0]_i_11/O
+                         net (fo=2, routed)           0.419    17.235    ReadRegister[0]_i_11_n_0
+    SLICE_X57Y40         LUT6 (Prop_lut6_I4_O)        0.124    17.359 r  ReadRegister[0]_i_2/O
+                         net (fo=83, routed)          4.972    22.331    ReadRegister[0]_i_2_n_0
+    SLICE_X40Y11         LUT6 (Prop_lut6_I1_O)        0.124    22.455 r  signalStoreCounterShortReg1[1]_i_1/O
+                         net (fo=1, routed)           0.000    22.455    signalStoreCounterShortReg1[1]
+    SLICE_X40Y11         FDRE                                         r  signalStoreCounterShortReg1_reg[1]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 signalStoreCounterLongReg0_reg[1]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            signalStoreCounterLongReg1_reg[1]_rep__1/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        22.387ns  (logic 5.051ns (22.562%)  route 17.336ns (77.438%))
+  Logic Levels:           26  (CARRY4=15 FDRE=1 LUT2=2 LUT4=2 LUT6=6)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y41         FDRE                         0.000     0.000 r  signalStoreCounterLongReg0_reg[1]/C
+    SLICE_X49Y41         FDRE (Prop_fdre_C_Q)         0.459     0.459 r  signalStoreCounterLongReg0_reg[1]/Q
+                         net (fo=513, routed)         6.288     6.747    signalStoreCounterLongReg0_reg_n_0_[1]
+    SLICE_X51Y36         LUT2 (Prop_lut2_I0_O)        0.124     6.871 r  signalStoreCounterLongReg0[3]_i_6/O
+                         net (fo=1, routed)           0.000     6.871    data1[1]
+    SLICE_X51Y36         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.421 r  signalStoreCounterLongReg0_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.421    signalStoreCounterLongReg0_reg[3]_i_2_n_0
+    SLICE_X51Y37         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.535 r  signalStoreCounterLongReg0_reg[7]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.535    signalStoreCounterLongReg0_reg[7]_i_2_n_0
+    SLICE_X51Y38         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.649 r  signalStoreCounterLongReg0_reg[11]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.649    signalStoreCounterLongReg0_reg[11]_i_2_n_0
+    SLICE_X51Y39         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.763 r  signalStoreCounterLongReg0_reg[15]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.763    signalStoreCounterLongReg0_reg[15]_i_2_n_0
+    SLICE_X51Y40         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.877 r  signalStoreCounterLongReg0_reg[19]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.877    signalStoreCounterLongReg0_reg[19]_i_2_n_0
+    SLICE_X51Y41         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.991 r  signalStoreCounterLongReg0_reg[23]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.991    signalStoreCounterLongReg0_reg[23]_i_2_n_0
+    SLICE_X51Y42         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.105 r  signalStoreCounterLongReg0_reg[27]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     8.105    signalStoreCounterLongReg0_reg[27]_i_2_n_0
+    SLICE_X51Y43         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     8.418 r  signalStoreCounterLongReg0_reg[31]_i_2/O[3]
+                         net (fo=3, routed)           1.255     9.672    data0[31]
+    SLICE_X50Y39         LUT6 (Prop_lut6_I4_O)        0.306     9.978 f  ReadRegister[31]_i_29/O
+                         net (fo=1, routed)           0.428    10.407    ReadRegister[31]_i_29_n_0
+    SLICE_X50Y40         LUT6 (Prop_lut6_I1_O)        0.124    10.531 f  ReadRegister[31]_i_13/O
+                         net (fo=30, routed)          1.370    11.900    ReadRegister[31]_i_13_n_0
+    SLICE_X56Y38         LUT2 (Prop_lut2_I1_O)        0.124    12.024 r  ReadRegister[4]_i_6/O
+                         net (fo=1, routed)           0.000    12.024    ReadRegister[4]_i_6_n_0
+    SLICE_X56Y38         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    12.557 r  ReadRegister_reg[4]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.557    ReadRegister_reg[4]_i_2_n_0
+    SLICE_X56Y39         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.674 r  ReadRegister_reg[8]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.674    ReadRegister_reg[8]_i_2_n_0
+    SLICE_X56Y40         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.791 r  ReadRegister_reg[12]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.791    ReadRegister_reg[12]_i_2_n_0
+    SLICE_X56Y41         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.908 r  ReadRegister_reg[16]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.908    ReadRegister_reg[16]_i_2_n_0
+    SLICE_X56Y42         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    13.025 r  ReadRegister_reg[20]_i_4/CO[3]
+                         net (fo=1, routed)           0.000    13.025    ReadRegister_reg[20]_i_4_n_0
+    SLICE_X56Y43         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    13.142 r  ReadRegister_reg[24]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    13.142    ReadRegister_reg[24]_i_2_n_0
+    SLICE_X56Y44         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323    13.465 f  ReadRegister_reg[28]_i_2/O[1]
+                         net (fo=3, routed)           0.988    14.453    ReadRegister2[26]
+    SLICE_X57Y41         LUT4 (Prop_lut4_I2_O)        0.306    14.759 f  ReadRegister[31]_i_18/O
+                         net (fo=2, routed)           0.827    15.586    ReadRegister[31]_i_18_n_0
+    SLICE_X54Y40         LUT4 (Prop_lut4_I0_O)        0.124    15.710 f  ReadRegister[31]_i_10/O
+                         net (fo=1, routed)           0.282    15.992    ReadRegister[31]_i_10_n_0
+    SLICE_X54Y40         LUT6 (Prop_lut6_I2_O)        0.124    16.116 f  ReadRegister[31]_i_4/O
+                         net (fo=3, routed)           0.577    16.693    ReadRegister[31]_i_4_n_0
+    SLICE_X57Y42         LUT6 (Prop_lut6_I1_O)        0.124    16.817 f  ReadRegister[0]_i_11/O
+                         net (fo=2, routed)           0.419    17.235    ReadRegister[0]_i_11_n_0
+    SLICE_X57Y40         LUT6 (Prop_lut6_I4_O)        0.124    17.359 r  ReadRegister[0]_i_2/O
+                         net (fo=83, routed)          4.290    21.649    ReadRegister[0]_i_2_n_0
+    SLICE_X35Y14         LUT6 (Prop_lut6_I1_O)        0.124    21.773 r  signalStoreCounterLongReg1[1]_rep__1_i_1/O
+                         net (fo=1, routed)           0.613    22.387    signalStoreCounterLongReg1[1]_rep__1_i_1_n_0
+    SLICE_X34Y14         FDRE                                         r  signalStoreCounterLongReg1_reg[1]_rep__1/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 WR1Read_reg/G
+                            (positive level-sensitive latch)
+  Destination:            SignalStoredOut_reg__0/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        22.360ns  (logic 2.760ns (12.343%)  route 19.600ns (87.657%))
+  Logic Levels:           12  (LDPE=1 LUT2=1 LUT4=1 LUT6=4 MUXF7=3 MUXF8=2)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X57Y33         LDPE                         0.000     0.000 r  WR1Read_reg/G
+    SLICE_X57Y33         LDPE (EnToQ_ldpe_G_Q)        0.559     0.559 r  WR1Read_reg/Q
+                         net (fo=154, routed)         9.112     9.671    WR1Read_reg_n_0
+    SLICE_X8Y17          LUT2 (Prop_lut2_I0_O)        0.124     9.795 r  SignalStoredOut__0_i_4469/O
+                         net (fo=117, routed)         3.557    13.352    SignalStoredOut__0_i_4469_n_0
+    SLICE_X31Y16         LUT4 (Prop_lut4_I2_O)        0.124    13.476 r  SignalStoredOut__0_i_1576/O
+                         net (fo=58, routed)          2.175    15.651    SignalStoredOut__0_i_1576_n_0
+    SLICE_X2Y30          LUT6 (Prop_lut6_I2_O)        0.124    15.775 f  SignalStoredOut__0_i_1596/O
+                         net (fo=1, routed)           0.000    15.775    SignalStoredOut__0_i_1596_n_0
+    SLICE_X2Y30          MUXF7 (Prop_muxf7_I0_O)      0.241    16.016 f  SignalStoredOut_reg__0_i_747/O
+                         net (fo=1, routed)           0.000    16.016    SignalStoredOut_reg__0_i_747_n_0
+    SLICE_X2Y30          MUXF8 (Prop_muxf8_I0_O)      0.098    16.114 f  SignalStoredOut_reg__0_i_325/O
+                         net (fo=1, routed)           2.154    18.268    SignalStoredOut_reg__0_i_325_n_0
+    SLICE_X28Y19         LUT6 (Prop_lut6_I1_O)        0.319    18.587 f  SignalStoredOut__0_i_129/O
+                         net (fo=1, routed)           0.000    18.587    SignalStoredOut__0_i_129_n_0
+    SLICE_X28Y19         MUXF7 (Prop_muxf7_I1_O)      0.245    18.832 f  SignalStoredOut_reg__0_i_67/O
+                         net (fo=1, routed)           0.000    18.832    SignalStoredOut_reg__0_i_67_n_0
+    SLICE_X28Y19         MUXF8 (Prop_muxf8_I0_O)      0.104    18.936 f  SignalStoredOut_reg__0_i_29/O
+                         net (fo=1, routed)           1.196    20.132    SignalStoredOut_reg__0_i_29_n_0
+    SLICE_X38Y16         LUT6 (Prop_lut6_I3_O)        0.316    20.448 f  SignalStoredOut__0_i_7/O
+                         net (fo=1, routed)           0.000    20.448    SignalStoredOut__0_i_7_n_0
+    SLICE_X38Y16         MUXF7 (Prop_muxf7_I0_O)      0.209    20.657 f  SignalStoredOut_reg__0_i_3/O
+                         net (fo=1, routed)           1.406    22.063    SignalStoredOut_reg__0_i_3_n_0
+    SLICE_X53Y38         LUT6 (Prop_lut6_I3_O)        0.297    22.360 r  SignalStoredOut__0_i_1/O
+                         net (fo=1, routed)           0.000    22.360    SignalStoredOut__0_i_1_n_0
+    SLICE_X53Y38         FDRE                                         r  SignalStoredOut_reg__0/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 signalStoreCounterLongReg0_reg[1]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            signalStoreCounterLongReg1_reg[1]_rep__0/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        22.340ns  (logic 5.051ns (22.610%)  route 17.289ns (77.390%))
+  Logic Levels:           26  (CARRY4=15 FDRE=1 LUT2=2 LUT4=2 LUT6=6)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y41         FDRE                         0.000     0.000 r  signalStoreCounterLongReg0_reg[1]/C
+    SLICE_X49Y41         FDRE (Prop_fdre_C_Q)         0.459     0.459 r  signalStoreCounterLongReg0_reg[1]/Q
+                         net (fo=513, routed)         6.288     6.747    signalStoreCounterLongReg0_reg_n_0_[1]
+    SLICE_X51Y36         LUT2 (Prop_lut2_I0_O)        0.124     6.871 r  signalStoreCounterLongReg0[3]_i_6/O
+                         net (fo=1, routed)           0.000     6.871    data1[1]
+    SLICE_X51Y36         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.421 r  signalStoreCounterLongReg0_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.421    signalStoreCounterLongReg0_reg[3]_i_2_n_0
+    SLICE_X51Y37         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.535 r  signalStoreCounterLongReg0_reg[7]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.535    signalStoreCounterLongReg0_reg[7]_i_2_n_0
+    SLICE_X51Y38         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.649 r  signalStoreCounterLongReg0_reg[11]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.649    signalStoreCounterLongReg0_reg[11]_i_2_n_0
+    SLICE_X51Y39         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.763 r  signalStoreCounterLongReg0_reg[15]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.763    signalStoreCounterLongReg0_reg[15]_i_2_n_0
+    SLICE_X51Y40         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.877 r  signalStoreCounterLongReg0_reg[19]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.877    signalStoreCounterLongReg0_reg[19]_i_2_n_0
+    SLICE_X51Y41         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.991 r  signalStoreCounterLongReg0_reg[23]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.991    signalStoreCounterLongReg0_reg[23]_i_2_n_0
+    SLICE_X51Y42         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.105 r  signalStoreCounterLongReg0_reg[27]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     8.105    signalStoreCounterLongReg0_reg[27]_i_2_n_0
+    SLICE_X51Y43         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     8.418 r  signalStoreCounterLongReg0_reg[31]_i_2/O[3]
+                         net (fo=3, routed)           1.255     9.672    data0[31]
+    SLICE_X50Y39         LUT6 (Prop_lut6_I4_O)        0.306     9.978 f  ReadRegister[31]_i_29/O
+                         net (fo=1, routed)           0.428    10.407    ReadRegister[31]_i_29_n_0
+    SLICE_X50Y40         LUT6 (Prop_lut6_I1_O)        0.124    10.531 f  ReadRegister[31]_i_13/O
+                         net (fo=30, routed)          1.370    11.900    ReadRegister[31]_i_13_n_0
+    SLICE_X56Y38         LUT2 (Prop_lut2_I1_O)        0.124    12.024 r  ReadRegister[4]_i_6/O
+                         net (fo=1, routed)           0.000    12.024    ReadRegister[4]_i_6_n_0
+    SLICE_X56Y38         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    12.557 r  ReadRegister_reg[4]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.557    ReadRegister_reg[4]_i_2_n_0
+    SLICE_X56Y39         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.674 r  ReadRegister_reg[8]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.674    ReadRegister_reg[8]_i_2_n_0
+    SLICE_X56Y40         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.791 r  ReadRegister_reg[12]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.791    ReadRegister_reg[12]_i_2_n_0
+    SLICE_X56Y41         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.908 r  ReadRegister_reg[16]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.908    ReadRegister_reg[16]_i_2_n_0
+    SLICE_X56Y42         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    13.025 r  ReadRegister_reg[20]_i_4/CO[3]
+                         net (fo=1, routed)           0.000    13.025    ReadRegister_reg[20]_i_4_n_0
+    SLICE_X56Y43         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    13.142 r  ReadRegister_reg[24]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    13.142    ReadRegister_reg[24]_i_2_n_0
+    SLICE_X56Y44         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323    13.465 f  ReadRegister_reg[28]_i_2/O[1]
+                         net (fo=3, routed)           0.988    14.453    ReadRegister2[26]
+    SLICE_X57Y41         LUT4 (Prop_lut4_I2_O)        0.306    14.759 f  ReadRegister[31]_i_18/O
+                         net (fo=2, routed)           0.827    15.586    ReadRegister[31]_i_18_n_0
+    SLICE_X54Y40         LUT4 (Prop_lut4_I0_O)        0.124    15.710 f  ReadRegister[31]_i_10/O
+                         net (fo=1, routed)           0.282    15.992    ReadRegister[31]_i_10_n_0
+    SLICE_X54Y40         LUT6 (Prop_lut6_I2_O)        0.124    16.116 f  ReadRegister[31]_i_4/O
+                         net (fo=3, routed)           0.577    16.693    ReadRegister[31]_i_4_n_0
+    SLICE_X57Y42         LUT6 (Prop_lut6_I1_O)        0.124    16.817 f  ReadRegister[0]_i_11/O
+                         net (fo=2, routed)           0.419    17.235    ReadRegister[0]_i_11_n_0
+    SLICE_X57Y40         LUT6 (Prop_lut6_I4_O)        0.124    17.359 r  ReadRegister[0]_i_2/O
+                         net (fo=83, routed)          4.288    21.647    ReadRegister[0]_i_2_n_0
+    SLICE_X35Y14         LUT6 (Prop_lut6_I1_O)        0.124    21.771 r  signalStoreCounterLongReg1[1]_rep__0_i_1/O
+                         net (fo=1, routed)           0.569    22.340    signalStoreCounterLongReg1[1]_rep__0_i_1_n_0
+    SLICE_X34Y14         FDRE                                         r  signalStoreCounterLongReg1_reg[1]_rep__0/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 signalStoreCounterLongReg0_reg[1]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            signalStoreCounterLongReg1_reg[1]_rep__2/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        22.331ns  (logic 5.051ns (22.619%)  route 17.280ns (77.381%))
+  Logic Levels:           26  (CARRY4=15 FDRE=1 LUT2=2 LUT4=2 LUT6=6)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y41         FDRE                         0.000     0.000 r  signalStoreCounterLongReg0_reg[1]/C
+    SLICE_X49Y41         FDRE (Prop_fdre_C_Q)         0.459     0.459 r  signalStoreCounterLongReg0_reg[1]/Q
+                         net (fo=513, routed)         6.288     6.747    signalStoreCounterLongReg0_reg_n_0_[1]
+    SLICE_X51Y36         LUT2 (Prop_lut2_I0_O)        0.124     6.871 r  signalStoreCounterLongReg0[3]_i_6/O
+                         net (fo=1, routed)           0.000     6.871    data1[1]
+    SLICE_X51Y36         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.421 r  signalStoreCounterLongReg0_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.421    signalStoreCounterLongReg0_reg[3]_i_2_n_0
+    SLICE_X51Y37         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.535 r  signalStoreCounterLongReg0_reg[7]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.535    signalStoreCounterLongReg0_reg[7]_i_2_n_0
+    SLICE_X51Y38         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.649 r  signalStoreCounterLongReg0_reg[11]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.649    signalStoreCounterLongReg0_reg[11]_i_2_n_0
+    SLICE_X51Y39         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.763 r  signalStoreCounterLongReg0_reg[15]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.763    signalStoreCounterLongReg0_reg[15]_i_2_n_0
+    SLICE_X51Y40         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.877 r  signalStoreCounterLongReg0_reg[19]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.877    signalStoreCounterLongReg0_reg[19]_i_2_n_0
+    SLICE_X51Y41         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.991 r  signalStoreCounterLongReg0_reg[23]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.991    signalStoreCounterLongReg0_reg[23]_i_2_n_0
+    SLICE_X51Y42         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.105 r  signalStoreCounterLongReg0_reg[27]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     8.105    signalStoreCounterLongReg0_reg[27]_i_2_n_0
+    SLICE_X51Y43         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     8.418 r  signalStoreCounterLongReg0_reg[31]_i_2/O[3]
+                         net (fo=3, routed)           1.255     9.672    data0[31]
+    SLICE_X50Y39         LUT6 (Prop_lut6_I4_O)        0.306     9.978 f  ReadRegister[31]_i_29/O
+                         net (fo=1, routed)           0.428    10.407    ReadRegister[31]_i_29_n_0
+    SLICE_X50Y40         LUT6 (Prop_lut6_I1_O)        0.124    10.531 f  ReadRegister[31]_i_13/O
+                         net (fo=30, routed)          1.370    11.900    ReadRegister[31]_i_13_n_0
+    SLICE_X56Y38         LUT2 (Prop_lut2_I1_O)        0.124    12.024 r  ReadRegister[4]_i_6/O
+                         net (fo=1, routed)           0.000    12.024    ReadRegister[4]_i_6_n_0
+    SLICE_X56Y38         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    12.557 r  ReadRegister_reg[4]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.557    ReadRegister_reg[4]_i_2_n_0
+    SLICE_X56Y39         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.674 r  ReadRegister_reg[8]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.674    ReadRegister_reg[8]_i_2_n_0
+    SLICE_X56Y40         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.791 r  ReadRegister_reg[12]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.791    ReadRegister_reg[12]_i_2_n_0
+    SLICE_X56Y41         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.908 r  ReadRegister_reg[16]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.908    ReadRegister_reg[16]_i_2_n_0
+    SLICE_X56Y42         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    13.025 r  ReadRegister_reg[20]_i_4/CO[3]
+                         net (fo=1, routed)           0.000    13.025    ReadRegister_reg[20]_i_4_n_0
+    SLICE_X56Y43         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    13.142 r  ReadRegister_reg[24]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    13.142    ReadRegister_reg[24]_i_2_n_0
+    SLICE_X56Y44         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323    13.465 f  ReadRegister_reg[28]_i_2/O[1]
+                         net (fo=3, routed)           0.988    14.453    ReadRegister2[26]
+    SLICE_X57Y41         LUT4 (Prop_lut4_I2_O)        0.306    14.759 f  ReadRegister[31]_i_18/O
+                         net (fo=2, routed)           0.827    15.586    ReadRegister[31]_i_18_n_0
+    SLICE_X54Y40         LUT4 (Prop_lut4_I0_O)        0.124    15.710 f  ReadRegister[31]_i_10/O
+                         net (fo=1, routed)           0.282    15.992    ReadRegister[31]_i_10_n_0
+    SLICE_X54Y40         LUT6 (Prop_lut6_I2_O)        0.124    16.116 f  ReadRegister[31]_i_4/O
+                         net (fo=3, routed)           0.577    16.693    ReadRegister[31]_i_4_n_0
+    SLICE_X57Y42         LUT6 (Prop_lut6_I1_O)        0.124    16.817 f  ReadRegister[0]_i_11/O
+                         net (fo=2, routed)           0.419    17.235    ReadRegister[0]_i_11_n_0
+    SLICE_X57Y40         LUT6 (Prop_lut6_I4_O)        0.124    17.359 r  ReadRegister[0]_i_2/O
+                         net (fo=83, routed)          4.468    21.828    ReadRegister[0]_i_2_n_0
+    SLICE_X35Y13         LUT6 (Prop_lut6_I1_O)        0.124    21.952 r  signalStoreCounterLongReg1[1]_rep__2_i_1/O
+                         net (fo=1, routed)           0.379    22.331    signalStoreCounterLongReg1[1]_rep__2_i_1_n_0
+    SLICE_X35Y13         FDRE                                         r  signalStoreCounterLongReg1_reg[1]_rep__2/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 signalStoreCounterLongReg0_reg[1]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            signalStoreCounterShortReg1_reg[1]_rep__1/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        22.291ns  (logic 5.051ns (22.660%)  route 17.240ns (77.340%))
+  Logic Levels:           26  (CARRY4=15 FDRE=1 LUT2=2 LUT4=2 LUT6=6)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y41         FDRE                         0.000     0.000 r  signalStoreCounterLongReg0_reg[1]/C
+    SLICE_X49Y41         FDRE (Prop_fdre_C_Q)         0.459     0.459 r  signalStoreCounterLongReg0_reg[1]/Q
+                         net (fo=513, routed)         6.288     6.747    signalStoreCounterLongReg0_reg_n_0_[1]
+    SLICE_X51Y36         LUT2 (Prop_lut2_I0_O)        0.124     6.871 r  signalStoreCounterLongReg0[3]_i_6/O
+                         net (fo=1, routed)           0.000     6.871    data1[1]
+    SLICE_X51Y36         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.421 r  signalStoreCounterLongReg0_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.421    signalStoreCounterLongReg0_reg[3]_i_2_n_0
+    SLICE_X51Y37         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.535 r  signalStoreCounterLongReg0_reg[7]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.535    signalStoreCounterLongReg0_reg[7]_i_2_n_0
+    SLICE_X51Y38         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.649 r  signalStoreCounterLongReg0_reg[11]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.649    signalStoreCounterLongReg0_reg[11]_i_2_n_0
+    SLICE_X51Y39         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.763 r  signalStoreCounterLongReg0_reg[15]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.763    signalStoreCounterLongReg0_reg[15]_i_2_n_0
+    SLICE_X51Y40         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.877 r  signalStoreCounterLongReg0_reg[19]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.877    signalStoreCounterLongReg0_reg[19]_i_2_n_0
+    SLICE_X51Y41         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.991 r  signalStoreCounterLongReg0_reg[23]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.991    signalStoreCounterLongReg0_reg[23]_i_2_n_0
+    SLICE_X51Y42         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.105 r  signalStoreCounterLongReg0_reg[27]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     8.105    signalStoreCounterLongReg0_reg[27]_i_2_n_0
+    SLICE_X51Y43         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     8.418 r  signalStoreCounterLongReg0_reg[31]_i_2/O[3]
+                         net (fo=3, routed)           1.255     9.672    data0[31]
+    SLICE_X50Y39         LUT6 (Prop_lut6_I4_O)        0.306     9.978 f  ReadRegister[31]_i_29/O
+                         net (fo=1, routed)           0.428    10.407    ReadRegister[31]_i_29_n_0
+    SLICE_X50Y40         LUT6 (Prop_lut6_I1_O)        0.124    10.531 f  ReadRegister[31]_i_13/O
+                         net (fo=30, routed)          1.370    11.900    ReadRegister[31]_i_13_n_0
+    SLICE_X56Y38         LUT2 (Prop_lut2_I1_O)        0.124    12.024 r  ReadRegister[4]_i_6/O
+                         net (fo=1, routed)           0.000    12.024    ReadRegister[4]_i_6_n_0
+    SLICE_X56Y38         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    12.557 r  ReadRegister_reg[4]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.557    ReadRegister_reg[4]_i_2_n_0
+    SLICE_X56Y39         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.674 r  ReadRegister_reg[8]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.674    ReadRegister_reg[8]_i_2_n_0
+    SLICE_X56Y40         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.791 r  ReadRegister_reg[12]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.791    ReadRegister_reg[12]_i_2_n_0
+    SLICE_X56Y41         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.908 r  ReadRegister_reg[16]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.908    ReadRegister_reg[16]_i_2_n_0
+    SLICE_X56Y42         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    13.025 r  ReadRegister_reg[20]_i_4/CO[3]
+                         net (fo=1, routed)           0.000    13.025    ReadRegister_reg[20]_i_4_n_0
+    SLICE_X56Y43         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    13.142 r  ReadRegister_reg[24]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    13.142    ReadRegister_reg[24]_i_2_n_0
+    SLICE_X56Y44         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323    13.465 f  ReadRegister_reg[28]_i_2/O[1]
+                         net (fo=3, routed)           0.988    14.453    ReadRegister2[26]
+    SLICE_X57Y41         LUT4 (Prop_lut4_I2_O)        0.306    14.759 f  ReadRegister[31]_i_18/O
+                         net (fo=2, routed)           0.827    15.586    ReadRegister[31]_i_18_n_0
+    SLICE_X54Y40         LUT4 (Prop_lut4_I0_O)        0.124    15.710 f  ReadRegister[31]_i_10/O
+                         net (fo=1, routed)           0.282    15.992    ReadRegister[31]_i_10_n_0
+    SLICE_X54Y40         LUT6 (Prop_lut6_I2_O)        0.124    16.116 f  ReadRegister[31]_i_4/O
+                         net (fo=3, routed)           0.577    16.693    ReadRegister[31]_i_4_n_0
+    SLICE_X57Y42         LUT6 (Prop_lut6_I1_O)        0.124    16.817 f  ReadRegister[0]_i_11/O
+                         net (fo=2, routed)           0.419    17.235    ReadRegister[0]_i_11_n_0
+    SLICE_X57Y40         LUT6 (Prop_lut6_I4_O)        0.124    17.359 r  ReadRegister[0]_i_2/O
+                         net (fo=83, routed)          4.808    22.167    ReadRegister[0]_i_2_n_0
+    SLICE_X34Y12         LUT6 (Prop_lut6_I1_O)        0.124    22.291 r  signalStoreCounterShortReg1[1]_rep__1_i_1/O
+                         net (fo=1, routed)           0.000    22.291    signalStoreCounterShortReg1[1]_rep__1_i_1_n_0
+    SLICE_X34Y12         FDRE                                         r  signalStoreCounterShortReg1_reg[1]_rep__1/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 signalStoreCounterLongReg0_reg[1]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            signalStoreCounterShortReg1_reg[1]_rep__5/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        22.272ns  (logic 5.051ns (22.679%)  route 17.221ns (77.321%))
+  Logic Levels:           26  (CARRY4=15 FDRE=1 LUT2=2 LUT4=2 LUT6=6)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y41         FDRE                         0.000     0.000 r  signalStoreCounterLongReg0_reg[1]/C
+    SLICE_X49Y41         FDRE (Prop_fdre_C_Q)         0.459     0.459 r  signalStoreCounterLongReg0_reg[1]/Q
+                         net (fo=513, routed)         6.288     6.747    signalStoreCounterLongReg0_reg_n_0_[1]
+    SLICE_X51Y36         LUT2 (Prop_lut2_I0_O)        0.124     6.871 r  signalStoreCounterLongReg0[3]_i_6/O
+                         net (fo=1, routed)           0.000     6.871    data1[1]
+    SLICE_X51Y36         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.421 r  signalStoreCounterLongReg0_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.421    signalStoreCounterLongReg0_reg[3]_i_2_n_0
+    SLICE_X51Y37         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.535 r  signalStoreCounterLongReg0_reg[7]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.535    signalStoreCounterLongReg0_reg[7]_i_2_n_0
+    SLICE_X51Y38         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.649 r  signalStoreCounterLongReg0_reg[11]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.649    signalStoreCounterLongReg0_reg[11]_i_2_n_0
+    SLICE_X51Y39         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.763 r  signalStoreCounterLongReg0_reg[15]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.763    signalStoreCounterLongReg0_reg[15]_i_2_n_0
+    SLICE_X51Y40         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.877 r  signalStoreCounterLongReg0_reg[19]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.877    signalStoreCounterLongReg0_reg[19]_i_2_n_0
+    SLICE_X51Y41         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.991 r  signalStoreCounterLongReg0_reg[23]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.991    signalStoreCounterLongReg0_reg[23]_i_2_n_0
+    SLICE_X51Y42         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.105 r  signalStoreCounterLongReg0_reg[27]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     8.105    signalStoreCounterLongReg0_reg[27]_i_2_n_0
+    SLICE_X51Y43         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     8.418 r  signalStoreCounterLongReg0_reg[31]_i_2/O[3]
+                         net (fo=3, routed)           1.255     9.672    data0[31]
+    SLICE_X50Y39         LUT6 (Prop_lut6_I4_O)        0.306     9.978 f  ReadRegister[31]_i_29/O
+                         net (fo=1, routed)           0.428    10.407    ReadRegister[31]_i_29_n_0
+    SLICE_X50Y40         LUT6 (Prop_lut6_I1_O)        0.124    10.531 f  ReadRegister[31]_i_13/O
+                         net (fo=30, routed)          1.370    11.900    ReadRegister[31]_i_13_n_0
+    SLICE_X56Y38         LUT2 (Prop_lut2_I1_O)        0.124    12.024 r  ReadRegister[4]_i_6/O
+                         net (fo=1, routed)           0.000    12.024    ReadRegister[4]_i_6_n_0
+    SLICE_X56Y38         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    12.557 r  ReadRegister_reg[4]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.557    ReadRegister_reg[4]_i_2_n_0
+    SLICE_X56Y39         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.674 r  ReadRegister_reg[8]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.674    ReadRegister_reg[8]_i_2_n_0
+    SLICE_X56Y40         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.791 r  ReadRegister_reg[12]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.791    ReadRegister_reg[12]_i_2_n_0
+    SLICE_X56Y41         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.908 r  ReadRegister_reg[16]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.908    ReadRegister_reg[16]_i_2_n_0
+    SLICE_X56Y42         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    13.025 r  ReadRegister_reg[20]_i_4/CO[3]
+                         net (fo=1, routed)           0.000    13.025    ReadRegister_reg[20]_i_4_n_0
+    SLICE_X56Y43         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    13.142 r  ReadRegister_reg[24]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    13.142    ReadRegister_reg[24]_i_2_n_0
+    SLICE_X56Y44         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323    13.465 f  ReadRegister_reg[28]_i_2/O[1]
+                         net (fo=3, routed)           0.988    14.453    ReadRegister2[26]
+    SLICE_X57Y41         LUT4 (Prop_lut4_I2_O)        0.306    14.759 f  ReadRegister[31]_i_18/O
+                         net (fo=2, routed)           0.827    15.586    ReadRegister[31]_i_18_n_0
+    SLICE_X54Y40         LUT4 (Prop_lut4_I0_O)        0.124    15.710 f  ReadRegister[31]_i_10/O
+                         net (fo=1, routed)           0.282    15.992    ReadRegister[31]_i_10_n_0
+    SLICE_X54Y40         LUT6 (Prop_lut6_I2_O)        0.124    16.116 f  ReadRegister[31]_i_4/O
+                         net (fo=3, routed)           0.577    16.693    ReadRegister[31]_i_4_n_0
+    SLICE_X57Y42         LUT6 (Prop_lut6_I1_O)        0.124    16.817 f  ReadRegister[0]_i_11/O
+                         net (fo=2, routed)           0.419    17.235    ReadRegister[0]_i_11_n_0
+    SLICE_X57Y40         LUT6 (Prop_lut6_I4_O)        0.124    17.359 r  ReadRegister[0]_i_2/O
+                         net (fo=83, routed)          4.789    22.148    ReadRegister[0]_i_2_n_0
+    SLICE_X39Y12         LUT6 (Prop_lut6_I1_O)        0.124    22.272 r  signalStoreCounterShortReg1[1]_rep__5_i_1/O
+                         net (fo=1, routed)           0.000    22.272    signalStoreCounterShortReg1[1]_rep__5_i_1_n_0
+    SLICE_X39Y12         FDRE                                         r  signalStoreCounterShortReg1_reg[1]_rep__5/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 signalStoreCounterLongReg0_reg[1]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            signalStoreCounterShortReg1_reg[0]/D
+  Path Group:             (none)
+  Path Type:              Max at Slow Process Corner
+  Data Path Delay:        22.192ns  (logic 5.051ns (22.761%)  route 17.141ns (77.239%))
+  Logic Levels:           26  (CARRY4=15 FDRE=1 LUT2=2 LUT4=2 LUT6=6)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X49Y41         FDRE                         0.000     0.000 r  signalStoreCounterLongReg0_reg[1]/C
+    SLICE_X49Y41         FDRE (Prop_fdre_C_Q)         0.459     0.459 r  signalStoreCounterLongReg0_reg[1]/Q
+                         net (fo=513, routed)         6.288     6.747    signalStoreCounterLongReg0_reg_n_0_[1]
+    SLICE_X51Y36         LUT2 (Prop_lut2_I0_O)        0.124     6.871 r  signalStoreCounterLongReg0[3]_i_6/O
+                         net (fo=1, routed)           0.000     6.871    data1[1]
+    SLICE_X51Y36         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.550     7.421 r  signalStoreCounterLongReg0_reg[3]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.421    signalStoreCounterLongReg0_reg[3]_i_2_n_0
+    SLICE_X51Y37         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.535 r  signalStoreCounterLongReg0_reg[7]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.535    signalStoreCounterLongReg0_reg[7]_i_2_n_0
+    SLICE_X51Y38         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.649 r  signalStoreCounterLongReg0_reg[11]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.649    signalStoreCounterLongReg0_reg[11]_i_2_n_0
+    SLICE_X51Y39         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.763 r  signalStoreCounterLongReg0_reg[15]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.763    signalStoreCounterLongReg0_reg[15]_i_2_n_0
+    SLICE_X51Y40         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.877 r  signalStoreCounterLongReg0_reg[19]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.877    signalStoreCounterLongReg0_reg[19]_i_2_n_0
+    SLICE_X51Y41         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     7.991 r  signalStoreCounterLongReg0_reg[23]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     7.991    signalStoreCounterLongReg0_reg[23]_i_2_n_0
+    SLICE_X51Y42         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.114     8.105 r  signalStoreCounterLongReg0_reg[27]_i_2/CO[3]
+                         net (fo=1, routed)           0.000     8.105    signalStoreCounterLongReg0_reg[27]_i_2_n_0
+    SLICE_X51Y43         CARRY4 (Prop_carry4_CI_O[3])
+                                                      0.313     8.418 r  signalStoreCounterLongReg0_reg[31]_i_2/O[3]
+                         net (fo=3, routed)           1.255     9.672    data0[31]
+    SLICE_X50Y39         LUT6 (Prop_lut6_I4_O)        0.306     9.978 f  ReadRegister[31]_i_29/O
+                         net (fo=1, routed)           0.428    10.407    ReadRegister[31]_i_29_n_0
+    SLICE_X50Y40         LUT6 (Prop_lut6_I1_O)        0.124    10.531 f  ReadRegister[31]_i_13/O
+                         net (fo=30, routed)          1.370    11.900    ReadRegister[31]_i_13_n_0
+    SLICE_X56Y38         LUT2 (Prop_lut2_I1_O)        0.124    12.024 r  ReadRegister[4]_i_6/O
+                         net (fo=1, routed)           0.000    12.024    ReadRegister[4]_i_6_n_0
+    SLICE_X56Y38         CARRY4 (Prop_carry4_S[1]_CO[3])
+                                                      0.533    12.557 r  ReadRegister_reg[4]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.557    ReadRegister_reg[4]_i_2_n_0
+    SLICE_X56Y39         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.674 r  ReadRegister_reg[8]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.674    ReadRegister_reg[8]_i_2_n_0
+    SLICE_X56Y40         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.791 r  ReadRegister_reg[12]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.791    ReadRegister_reg[12]_i_2_n_0
+    SLICE_X56Y41         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    12.908 r  ReadRegister_reg[16]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    12.908    ReadRegister_reg[16]_i_2_n_0
+    SLICE_X56Y42         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    13.025 r  ReadRegister_reg[20]_i_4/CO[3]
+                         net (fo=1, routed)           0.000    13.025    ReadRegister_reg[20]_i_4_n_0
+    SLICE_X56Y43         CARRY4 (Prop_carry4_CI_CO[3])
+                                                      0.117    13.142 r  ReadRegister_reg[24]_i_2/CO[3]
+                         net (fo=1, routed)           0.000    13.142    ReadRegister_reg[24]_i_2_n_0
+    SLICE_X56Y44         CARRY4 (Prop_carry4_CI_O[1])
+                                                      0.323    13.465 f  ReadRegister_reg[28]_i_2/O[1]
+                         net (fo=3, routed)           0.988    14.453    ReadRegister2[26]
+    SLICE_X57Y41         LUT4 (Prop_lut4_I2_O)        0.306    14.759 f  ReadRegister[31]_i_18/O
+                         net (fo=2, routed)           0.827    15.586    ReadRegister[31]_i_18_n_0
+    SLICE_X54Y40         LUT4 (Prop_lut4_I0_O)        0.124    15.710 f  ReadRegister[31]_i_10/O
+                         net (fo=1, routed)           0.282    15.992    ReadRegister[31]_i_10_n_0
+    SLICE_X54Y40         LUT6 (Prop_lut6_I2_O)        0.124    16.116 f  ReadRegister[31]_i_4/O
+                         net (fo=3, routed)           0.577    16.693    ReadRegister[31]_i_4_n_0
+    SLICE_X57Y42         LUT6 (Prop_lut6_I1_O)        0.124    16.817 f  ReadRegister[0]_i_11/O
+                         net (fo=2, routed)           0.419    17.235    ReadRegister[0]_i_11_n_0
+    SLICE_X57Y40         LUT6 (Prop_lut6_I4_O)        0.124    17.359 r  ReadRegister[0]_i_2/O
+                         net (fo=83, routed)          4.330    21.689    ReadRegister[0]_i_2_n_0
+    SLICE_X37Y13         LUT6 (Prop_lut6_I1_O)        0.124    21.813 r  signalStoreCounterShortReg1[0]_i_1/O
+                         net (fo=1, routed)           0.379    22.192    signalStoreCounterShortReg1[0]
+    SLICE_X37Y13         FDRE                                         r  signalStoreCounterShortReg1_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+
+Min Delay Paths
+--------------------------------------------------------------------------------------
+Slack:                    inf
+  Source:                 storeTmp1_reg[906]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            storeTmp1_reg[907]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.202ns  (logic 0.128ns (63.220%)  route 0.074ns (36.780%))
+  Logic Levels:           1  (FDRE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X58Y22         FDRE                         0.000     0.000 r  storeTmp1_reg[906]/C
+    SLICE_X58Y22         FDRE (Prop_fdre_C_Q)         0.128     0.128 r  storeTmp1_reg[906]/Q
+                         net (fo=5, routed)           0.074     0.202    storeTmp1[906]
+    SLICE_X59Y22         FDRE                                         r  storeTmp1_reg[907]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 storeTmp0_reg[1274]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            storeTmp0_reg[1275]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.206ns  (logic 0.128ns (62.083%)  route 0.078ns (37.917%))
+  Logic Levels:           1  (FDRE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X29Y38         FDRE                         0.000     0.000 r  storeTmp0_reg[1274]/C
+    SLICE_X29Y38         FDRE (Prop_fdre_C_Q)         0.128     0.128 r  storeTmp0_reg[1274]/Q
+                         net (fo=5, routed)           0.078     0.206    storeTmp0[1274]
+    SLICE_X28Y38         FDRE                                         r  storeTmp0_reg[1275]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 storeTmp1_reg[1150]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            storeTmp1_reg[1151]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.208ns  (logic 0.128ns (61.600%)  route 0.080ns (38.400%))
+  Logic Levels:           1  (FDRE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X28Y7          FDRE                         0.000     0.000 r  storeTmp1_reg[1150]/C
+    SLICE_X28Y7          FDRE (Prop_fdre_C_Q)         0.128     0.128 r  storeTmp1_reg[1150]/Q
+                         net (fo=5, routed)           0.080     0.208    storeTmp1[1150]
+    SLICE_X29Y7          FDRE                                         r  storeTmp1_reg[1151]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 tmp_reg[9]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            tmp_reg[10]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.213ns  (logic 0.128ns (60.036%)  route 0.085ns (39.964%))
+  Logic Levels:           1  (FDRE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X61Y61         FDRE                         0.000     0.000 r  tmp_reg[9]/C
+    SLICE_X61Y61         FDRE (Prop_fdre_C_Q)         0.128     0.128 r  tmp_reg[9]/Q
+                         net (fo=2, routed)           0.085     0.213    p_0_out[10]
+    SLICE_X61Y61         FDRE                                         r  tmp_reg[10]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 storeTmp1_reg[886]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            storeTmp1_reg[887]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.215ns  (logic 0.141ns (65.623%)  route 0.074ns (34.377%))
+  Logic Levels:           1  (FDRE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X62Y18         FDRE                         0.000     0.000 r  storeTmp1_reg[886]/C
+    SLICE_X62Y18         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  storeTmp1_reg[886]/Q
+                         net (fo=5, routed)           0.074     0.215    storeTmp1[886]
+    SLICE_X62Y18         FDRE                                         r  storeTmp1_reg[887]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 storeTmp1_reg[106]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            storeTmp1_reg[107]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.216ns  (logic 0.128ns (59.166%)  route 0.088ns (40.834%))
+  Logic Levels:           1  (FDRE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X47Y1          FDRE                         0.000     0.000 r  storeTmp1_reg[106]/C
+    SLICE_X47Y1          FDRE (Prop_fdre_C_Q)         0.128     0.128 r  storeTmp1_reg[106]/Q
+                         net (fo=5, routed)           0.088     0.216    storeTmp1[106]
+    SLICE_X46Y1          FDRE                                         r  storeTmp1_reg[107]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 storeTmp1_reg[111]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            storeTmp1_reg[112]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.220ns  (logic 0.141ns (64.051%)  route 0.079ns (35.949%))
+  Logic Levels:           1  (FDRE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X47Y2          FDRE                         0.000     0.000 r  storeTmp1_reg[111]/C
+    SLICE_X47Y2          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  storeTmp1_reg[111]/Q
+                         net (fo=5, routed)           0.079     0.220    storeTmp1[111]
+    SLICE_X47Y2          FDRE                                         r  storeTmp1_reg[112]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 storeTmp1_reg[1268]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            storeTmp1_reg[1269]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.220ns  (logic 0.141ns (64.051%)  route 0.079ns (35.949%))
+  Logic Levels:           1  (FDRE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X13Y3          FDRE                         0.000     0.000 r  storeTmp1_reg[1268]/C
+    SLICE_X13Y3          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  storeTmp1_reg[1268]/Q
+                         net (fo=5, routed)           0.079     0.220    storeTmp1[1268]
+    SLICE_X13Y3          FDRE                                         r  storeTmp1_reg[1269]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 storeTmp1_reg[838]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            storeTmp1_reg[839]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.220ns  (logic 0.141ns (64.051%)  route 0.079ns (35.949%))
+  Logic Levels:           1  (FDRE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X59Y15         FDRE                         0.000     0.000 r  storeTmp1_reg[838]/C
+    SLICE_X59Y15         FDRE (Prop_fdre_C_Q)         0.141     0.141 r  storeTmp1_reg[838]/Q
+                         net (fo=5, routed)           0.079     0.220    storeTmp1[838]
+    SLICE_X59Y15         FDRE                                         r  storeTmp1_reg[839]/D
+  -------------------------------------------------------------------    -------------------
+
+Slack:                    inf
+  Source:                 storeTmp1_reg[156]/C
+                            (rising edge-triggered cell FDRE)
+  Destination:            storeTmp1_reg[157]/D
+  Path Group:             (none)
+  Path Type:              Min at Fast Process Corner
+  Data Path Delay:        0.221ns  (logic 0.141ns (63.753%)  route 0.080ns (36.247%))
+  Logic Levels:           1  (FDRE=1)
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+    SLICE_X57Y1          FDRE                         0.000     0.000 r  storeTmp1_reg[156]/C
+    SLICE_X57Y1          FDRE (Prop_fdre_C_Q)         0.141     0.141 r  storeTmp1_reg[156]/Q
+                         net (fo=5, routed)           0.080     0.221    storeTmp1[156]
+    SLICE_X57Y1          FDRE                                         r  storeTmp1_reg[157]/D
+  -------------------------------------------------------------------    -------------------
+
+
+
+
+

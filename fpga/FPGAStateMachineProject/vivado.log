@@ -1,0 +1,522 @@
+#-----------------------------------------------------------
+# Vivado v2022.2 (64-bit)
+# SW Build 3671981 on Fri Oct 14 05:00:03 MDT 2022
+# IP Build 3669848 on Fri Oct 14 08:30:02 MDT 2022
+# Start of session at: Tue May  9 09:48:40 2023
+# Process ID: 7508
+# Current directory: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20728 C:\Users\paw\Desktop\Alle semestre\P4\FPGAStateMachineProject\FPGAStateMachineProject.xpr
+# Log file: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/vivado.log
+# Journal file: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject\vivado.jou
+# Running On: LAPTOP-5FSB23OP, OS: Windows, CPU Frequency: 2419 MHz, CPU Physical cores: 4, Host memory: 16969 MB
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.xpr}
+INFO: [filemgmt 56-3] Default IP Output Path : Could not find the directory 'C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2022.2/data/ip'.
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vek280_es:part0:1.0 available at C:/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vek280/es/1.0/board.xml as part xcve2802-vsvh1760-2lp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vhk158_es:part0:1.0 available at C:/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vhk158/es/1.0/board.xml as part xcvh1582-vsva3697-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es:part0:1.2 available at C:/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120/es/1.2/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk120_es_revb:part0:1.0 available at C:/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk120_revb/es/1.0/board.xml as part xcvp1202-vsva2785-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:vpk180_es:part0:1.0 available at C:/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/vpk180/es/1.0/board.xml as part xcvp1802-lsvc4072-2mp-e-s-es1 specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu208ld:part0:2.0 available at C:/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu208ld/production/2.0/board.xml as part xczu58dr-fsvg1517-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu216ld:part0:2.0 available at C:/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu216ld/production/2.0/board.xml as part xczu59dr-ffvf1760-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670:part0:2.0 available at C:/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670/2.0/board.xml as part xczu67dr-fsve1156-2-i specified in board_part file is either invalid or not available
+WARNING: [Board 49-26] cannot add Board Part xilinx.com:zcu670ld:part0:1.0 available at C:/Xilinx/Vivado/2022.2/data/xhub/boards/XilinxBoardStore/boards/Xilinx/zcu670ld/1.0/board.xml as part xczu57dr-fsve1156-2-i specified in board_part file is either invalid or not available
+open_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 1709.141 ; gain = 305.586
+update_compile_order -fileset sources_1
+launch_runs synth_1
+[Tue May  9 09:49:28 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Tue May  9 10:24:03 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+[Tue May  9 10:30:08 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Tue May  9 10:41:15 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Tue May  9 10:42:47 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May  9 10:43:57 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+open_run impl_1
+INFO: [Device 21-403] Loading part xc7a35tcpg236-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 2116.336 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 31 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'StateMachine' is not ideal for floorplanning, since the cellview 'StateMachine' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF Files: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.145 . Memory (MB): peak = 2798.113 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.145 . Memory (MB): peak = 2798.113 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2798.113 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:17 ; elapsed = 00:00:20 . Memory (MB): peak = 2935.809 ; gain = 1162.980
+WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp with file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp
+launch_runs synth_1 -jobs 4
+[Tue May  9 10:50:52 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Tue May  9 10:53:08 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May  9 10:54:21 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+reset_run impl_1 -prev_step 
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May  9 11:02:46 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2022.2
+  **** Build date : Oct 14 2022 at 05:18:10
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+
+******** Xilinx cs_server v2022.2.0
+  ****** Build date   : Oct 05 2022-01:25:37
+    **** Build number : 2022.2.1664925937
+      ** Copyright 2017-2023 Xilinx, Inc. All Rights Reserved.
+
+
+
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210328B792D0A
+open_hw_target: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 5097.070 ; gain = 2127.191
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+current_hw_device [get_hw_devices xc7a35t_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp with file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp
+launch_runs synth_1 -jobs 4
+[Tue May  9 11:14:27 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Tue May  9 11:15:55 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May  9 11:17:38 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp with file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp
+launch_runs synth_1 -jobs 4
+[Tue May  9 11:22:24 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp with file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp
+launch_runs impl_1 -jobs 4
+[Tue May  9 11:26:53 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+[Tue May  9 11:26:53 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May  9 11:30:03 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210328B792D0A
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210328B792D0A
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210328B792D0A
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210328B792D0A
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Digilent/210328B792D0A
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Digilent/210328B792D0A
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+WARNING: [Labtoolstcl 44-129] No matching hw_ila_data was found.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp with file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp
+launch_runs synth_1 -jobs 4
+[Tue May  9 12:17:46 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Tue May  9 12:19:16 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May  9 12:23:20 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+refresh_design
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 5160.121 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 356 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'StateMachine' is not ideal for floorplanning, since the cellview 'StateMachine' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF Files: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.196 . Memory (MB): peak = 5160.121 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.196 . Memory (MB): peak = 5160.121 ; gain = 0.000
+WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
+place_ports reg0 T2
+place_ports reg1 U1
+set_property IOSTANDARD LVTTL [get_ports [list reg1]]
+set_property IOSTANDARD LVTTL [get_ports [list reg0]]
+save_constraints
+reset_run impl_1
+launch_runs impl_1 -jobs 4
+[Tue May  9 12:28:58 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May  9 12:30:17 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp with file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May  9 12:37:39 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+[Tue May  9 12:37:39 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp with file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May  9 12:42:01 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+[Tue May  9 12:42:01 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp with file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May  9 12:47:52 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+[Tue May  9 12:47:52 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp with file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp
+launch_runs synth_1 -jobs 4
+[Tue May  9 12:54:31 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Tue May  9 12:55:49 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May  9 12:57:30 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp with file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp
+launch_runs synth_1 -jobs 4
+[Tue May  9 13:10:01 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+close_design
+launch_runs impl_1 -jobs 4
+[Tue May  9 13:11:13 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May  9 13:12:40 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.029 . Memory (MB): peak = 5215.117 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1612 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'StateMachine' is not ideal for floorplanning, since the cellview 'StateMachine' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF Files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.493 . Memory (MB): peak = 5215.117 ; gain = 0.000
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.494 . Memory (MB): peak = 5215.117 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 5215.117 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp with file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp
+launch_runs synth_1 -jobs 4
+[Tue May  9 13:15:52 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Tue May  9 13:17:19 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp with file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp
+launch_runs impl_1 -jobs 4
+[Tue May  9 13:19:46 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+[Tue May  9 13:19:46 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp with file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp
+launch_runs synth_1 -jobs 4
+[Tue May  9 13:35:13 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Tue May  9 13:36:28 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp with file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp
+launch_runs impl_1 -jobs 4
+[Tue May  9 13:47:50 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+[Tue May  9 13:47:50 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+close_design
+close_design: Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 5257.250 ; gain = 0.301
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp with file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp
+launch_runs impl_1 -jobs 4
+[Tue May  9 13:52:47 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+[Tue May  9 13:52:47 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Tue May  9 13:53:23 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp with file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp
+launch_runs synth_1 -jobs 4
+[Tue May  9 14:03:53 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Tue May  9 14:05:09 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May  9 14:06:37 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 5257.250 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1612 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'StateMachine' is not ideal for floorplanning, since the cellview 'StateMachine' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF Files: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.456 . Memory (MB): peak = 5257.250 ; gain = 0.000
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.457 . Memory (MB): peak = 5257.250 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 5257.250 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+WARNING: [Timing 38-313] There are no user specified timing constraints. Timing constraints are needed for proper timing analysis.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+reset_run synth_1
+INFO: [Project 1-1161] Replacing file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.srcs/utils_1/imports/synth_1/StateMachine.dcp with file C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/StateMachine.dcp
+launch_runs synth_1 -jobs 4
+[Tue May  9 14:29:24 2023] Launched synth_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Tue May  9 14:31:18 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Tue May  9 14:32:54 2023] Launched impl_1...
+Run output will be captured here: C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7a35t_0]
+set_property PROGRAM.FILE {C:/Users/paw/Desktop/Alle semestre/P4/FPGAStateMachineProject/FPGAStateMachineProject.runs/impl_1/StateMachine.bit} [get_hw_devices xc7a35t_0]
+program_hw_devices [get_hw_devices xc7a35t_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+refresh_hw_device [lindex [get_hw_devices xc7a35t_0] 0]
+INFO: [Labtools 27-1434] Device xc7a35t (JTAG device index = 0) is programmed with a design that has no supported debug core(s) in it.
+refresh_design
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+INFO: [Common 17-41] Interrupt caught. Command should exit soon.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.037 . Memory (MB): peak = 5296.840 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1612 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'StateMachine' is not ideal for floorplanning, since the cellview 'StateMachine' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-479] Netlist was created with Vivado 2022.2
+refresh_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:15 . Memory (MB): peak = 5296.840 ; gain = 8.379
+INFO: [Common 17-344] 'refresh_design' was cancelled
+open_run impl_1
