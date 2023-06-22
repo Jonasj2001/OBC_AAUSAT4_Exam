@@ -21,7 +21,7 @@ mod app {
     use stm32f4xx_hal::{
         can::Can,
         gpio::{
-            gpioa::{PA11, PA12, PA5},
+            gpioa::{PA0, PA1, PA11, PA12, PA5},
             Alternate, Output, PushPull,
         },
         pac::CAN1,
@@ -44,7 +44,11 @@ mod app {
         sharedtaskid: Vec<[u8; 8], 10>,
         data_from_can: Vec<[u8; 8], 32>,
         rtc: Rtc<stm32f4xx_hal::rtc::Lsi>,
-        local_tasklist: Vec<Vec<[u8; 8], 32>, 48>,
+        local_tasklist: Vec<Vec<[u8; 8], 32>, 5>,
+        blink_enable: bool,
+        test_results: Vec<bool, 10>,
+        t0pin: PA0<Output<PushPull>>,
+        t1pin: PA1<Output<PushPull>>,
     }
 
     // Holds the local resources (used by a single task)
@@ -93,7 +97,12 @@ mod app {
 
         // Set up the LED. On the Nucleo-F446RE it's connected to pin PA5.
         let gpioa = _device.GPIOA.split();
-        let led = gpioa.pa5.into_push_pull_output();
+        let mut led = gpioa.pa5.into_push_pull_output();
+        led.set_low();
+        let mut t0pin = gpioa.pa0.into_push_pull_output();
+        let mut t1pin = gpioa.pa1.into_push_pull_output();
+        t0pin.set_low();
+        t1pin.set_low();
 
         // Initialize variables for can_send
 
@@ -135,7 +144,7 @@ mod app {
         let can_input = Vec::<[u8; 8], 32>::new();
         let data_from_can = Vec::<[u8; 8], 32>::new();
         let sharedtaskid = Vec::<[u8; 8], 10>::new();
-        let local_tasklist = Vec::<Vec<[u8; 8], 32>, 48>::new();
+        let local_tasklist = Vec::<Vec<[u8; 8], 32>, 5>::new();
 
         // Set up the monotonic timer
         let mono = DwtSystick::new(&mut _core.DCB, _core.DWT, _core.SYST, clocks.hclk().to_Hz());
@@ -151,6 +160,10 @@ mod app {
                 data_from_can,
                 rtc,
                 local_tasklist,
+                blink_enable: true,
+                test_results: Vec::<bool, 10>::new(),
+                t0pin,
+                t1pin,
             },
             Local {
                 led,
@@ -171,17 +184,18 @@ mod app {
     }
 
     // The task functions are called by the scheduler
-    #[task(local = [led], shared = [rtc])]
+    #[task(local = [], shared = [rtc,blink_enable])]
     fn blink(mut ctx: blink::Context) {
-        blink::spawn_after(1.secs()).ok();
-        ctx.local.led.toggle();
-        defmt::info!(
-            "time: {}",
-            ctx.shared.rtc.lock(|c| c
-                .get_datetime()
-                .assume_offset(offset!(UTC))
-                .unix_timestamp())
-        );
+        if ctx.shared.blink_enable.lock(|b| *b) {
+            blink::spawn_after(1.secs()).ok();
+            defmt::info!(
+                "time: {}",
+                ctx.shared.rtc.lock(|c| c
+                    .get_datetime()
+                    .assume_offset(offset!(UTC))
+                    .unix_timestamp())
+            );
+        };
     }
 
     // send a meesage via CAN
@@ -253,7 +267,7 @@ mod app {
     }
 
     // receive a message via CAN
-    #[task(binds = CAN1_RX0, shared = [can1,sharedtime, sharedtaskid, data_from_can, rtc, local_tasklist], local=[can_input],priority=4)]
+    #[task(binds = CAN1_RX0, shared = [can1,sharedtime, sharedtaskid, data_from_can, rtc, local_tasklist, t0pin, t1pin], local=[can_input,led],priority=4)]
     fn can_receive(mut ctx: can_receive::Context) {
         //defmt::info!("received message");
         let mut can1 = ctx.shared.can1;
@@ -295,7 +309,16 @@ mod app {
                 //copy can_input over to shared variable to be processed in the respective tasks
                 let mut data_from_can = ctx.shared.data_from_can;
                 if frame_id.cmd == 2 {
-                    //let task= can_input[0][0] as usize;
+                    let task = can_input[0][0];
+                    if task == 2 {
+                        ctx.shared.t0pin.lock(|c| c.set_high());
+                        ctx.local.led.set_high();
+                        defmt::info!("-------- LED 0");
+                    } else if task == 3 {
+                        ctx.shared.t1pin.lock(|c| c.set_high());
+                        defmt::info!("-------- LED 1");
+                    }
+
                     can_input.clear();
                     defmt::info!(
                         "task is executed at time {}",
@@ -307,18 +330,18 @@ mod app {
                     ctx.shared.local_tasklist.lock(|c| c.pop());
                     reply::spawn().ok();
                     request_task::spawn(0x46).ok();
-                }else{
-                data_from_can.lock(|c| {
-                    c.clear();
-                    c.extend(can_input.clone().into_iter())
-                });
-            }
+                } else {
+                    data_from_can.lock(|c| {
+                        c.clear();
+                        c.extend(can_input.clone().into_iter())
+                    });
+                }
             };
         } else {
             defmt::info!("Message not 4 us");
         }
         // if received command = 2 it is seen as a task execute and can_input is cleared in order to free up the locks
-        
+
         //task list from requested to check for last message
         //defmt::info!("can receive done");
     }
@@ -353,7 +376,7 @@ mod app {
 
     //need to link receive to the time
 
-    #[task(shared=[sharedtime])]
+    #[task(shared=[sharedtime,blink_enable,test_results])]
     fn set_time(mut ctx: set_time::Context) {
         //defmt::info!("set time and initiate tasks");
         let got_time: [u8; 8] = ctx.shared.sharedtime.lock(|c| *c);
@@ -405,19 +428,36 @@ mod app {
         //compare
 
         delete_task::spawn(0).ok();
-        
+
         request_task::spawn(0x46).ok();
-        
+
         //compare
 
-        let data4: [u8; 8] = [3; 8];// ID acts as a new schedule task for refrence
+        let data4: [u8; 8] = [3; 8]; // ID acts as a new schedule task for refrence
         alter_task::spawn(0, 1, 2, 0, 2, time + 5, data4).ok();
-    
+
         request_task::spawn(0x46).ok();
-    
+
+        ctx.shared.blink_enable.lock(|b| *b = false);
+        while (ctx.shared.test_results.lock(|c| c.len()) < 5) {
+            continue;
+        }
+
+        let mut test_results = ctx.shared.test_results.lock(|t| t.clone());
+        for i in 0..test_results.len() {
+            defmt::info!(
+                "Test {}: {}",
+                i + 1,
+                if true == test_results[i] {
+                    "Passed"
+                } else {
+                    "Failed"
+                }
+            );
+        }
         //compare
     }
-    
+
     #[task(shared=[sharedtaskid, data_from_can, local_tasklist], local=[], priority = 2)]
     fn schedule_task(
         ctx: schedule_task::Context,
@@ -525,23 +565,19 @@ mod app {
         //adding task ID as [[x,x,x,x,x,x,x,x,],[ID,ID,0,0,0,0,0,0],...,[x,x,x,x,x,x,x,x]]
         let mut sharedtaskid = ctx.shared.sharedtaskid;
         let mut id = sharedtaskid.lock(|a| {
-            a[task];
+            a[task]; //@TODO: remove?
             a.remove(task)
         });
         for i in 0..6 {
             id[i + 2] = data[i];
         }
         sending.push(id).ok();
-        local_tasklist.lock(|c| {
-            c.push(sending.clone()).ok();
-            c.remove(task)
-        });
         //CAN header values [priority, receiver, port, command, sb, eb, frg_count]
         let priority: u8 = 1;
         let reciever: u8 = 1; //obc
         let port: u8 = 3; //fp
         let cmd: u8 = 3; //alter task
-        can_send::spawn(priority, reciever, port, cmd, sending, true).ok();
+        can_send::spawn(priority, reciever, port, cmd, sending.clone(), true).ok();
 
         let mut datatmp = Vec::<[u8; 8], 32>::new();
         let mut data_from_can = ctx.shared.data_from_can;
@@ -554,18 +590,25 @@ mod app {
             });
             if !datatmp.is_empty() {
                 //defmt::info!("received alteration confirmation");
-                let mut id: [u8; 8] = [0; 8]; //bytes [x,x,x,x,x,x,ID,ID] containing the id of the task saved as [ID,ID,x,x,x,x,x,x]
+                //let mut id: [u8; 8] = [0; 8]; //bytes [x,x,x,x,x,x,ID,ID] containing the id of the task saved as [ID,ID,x,x,x,x,x,x]
                 id[0] = datatmp[0][6];
                 id[1] = datatmp[0][7];
                 sharedtaskid.lock(|c| c.push(id).ok()); //place id in task id list for further refrence
                 data_from_can.lock(|c| c.clear()); //clear data ready for next receive
+
+                sending.pop();
+                sending.push(id).ok();
+                local_tasklist.lock(|c| {
+                    c.push(sending).ok();
+                    c.remove(task)
+                });
                 break;
             }
         }
     }
 
     //request task list
-    #[task(shared=[data_from_can, local_tasklist], priority=2)]
+    #[task(shared=[data_from_can, local_tasklist,test_results], priority=2)]
     fn request_task(mut ctx: request_task::Context, size: u8) {
         defmt::info!("request schedule");
         //the data here is irrelevant so an empty frame is sent
@@ -611,7 +654,6 @@ mod app {
             }
         }
 
-        
         //comparison
         let mut same = true;
         if local_tasklist.len() == vectorfull.len() {
@@ -622,14 +664,16 @@ mod app {
                             same = false;
                         }
                     }
-                }else{
+                } else {
                     same = false;
                 }
             }
         } else {
             same = false;
         }
+
         defmt::println!("expected: {}", same);
+        ctx.shared.test_results.lock(|c| c.push(same).ok());
     }
 
     #[task(shared=[sharedtaskid, data_from_can, local_tasklist], priority=2)]
@@ -639,7 +683,7 @@ mod app {
 
         //adding task ID as [[ID,ID,0,0,0,0,0,0],...,[x,x,x,x,x,x,x,x]]
         let mut sharedtaskid = ctx.shared.sharedtaskid;
-        let mut local_tasklist =ctx.shared.local_tasklist;
+        let mut local_tasklist = ctx.shared.local_tasklist;
         let id = sharedtaskid.lock(|a| {
             a[task];
             a.remove(task)
@@ -674,7 +718,7 @@ mod app {
         }
     }
 
-    #[task(priority=5)]
+    #[task(priority = 5)]
     fn reply(_ctx: reply::Context) {
         let mut sending = Vec::<[u8; 8], 32>::new();
         sending.push([0x06, 0, 0, 0, 0, 0, 0, 0]).ok();

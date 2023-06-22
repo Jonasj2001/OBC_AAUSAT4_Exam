@@ -201,13 +201,13 @@ pub mod flightplanner {
 
         //Shifts data two spaces to the right
         for i in (3..7).rev() {
-            defmt::debug!("time b{} with b{}", i + 2, i,);
+            //defmt::debug!("time b{} with b{}", i + 2, i,);
             task[i + 1] = task[i];
         }
 
         //Shifts data two spaces to the right
         for i in (9..max).rev() {
-            defmt::debug!("replace b{} with b{}", i + 2, i,);
+            //defmt::debug!("replace b{} with b{}", i + 2, i,);
             task[i + 2] = task[i];
         }
 

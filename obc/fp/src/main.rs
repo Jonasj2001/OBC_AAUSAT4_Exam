@@ -278,6 +278,7 @@ mod app {
                     [0; 8]
                 }
             };
+            defmt::debug!("Sending: {:?}", data);
             if msg_queue.is_empty() {
                 end_bit = true;
             };
@@ -295,9 +296,9 @@ mod app {
 
             //Nessecary delay for CAN to be able to resend message in case of error
             //1000: good for 1Mbit/s - Equiv of 900us delay
-            for _i in 0..1000 {
-                continue;
-            }
+            // for _i in 0..1000 {
+            //     continue;
+            // }
 
             loop {
                 if can.lock(|c| c.transmit(&frame).is_ok()) {
@@ -381,7 +382,7 @@ mod app {
         } else {
             defmt::debug!("Message not 4 us");
         }
-        defmt::debug!("Can receive done");
+        //defmt::debug!("Can receive done");
     }
 
     // The task functions are called by the scheduler
@@ -653,13 +654,17 @@ mod app {
         let mut new_data = Vec::<[u8; 8], 32>::new();
         new_data.extend(data.into_iter());
         let address: u32 = ((new_data[1][0] as u32) << 8) | new_data[1][1] as u32;
-        for i in 2..new_data.len() {
-            for j in 2..8 {
-                new_data[i - 1][j - 2] = new_data[i - 1][j];
+        for i in 1..new_data.len() {
+            if i + 1 == new_data.len() {
+                new_data[i][0] = 0;
+                new_data[i][1] = 0;
+            } else {
+                new_data[i][0] = new_data[i + 1][0];
+                new_data[i][1] = new_data[i + 1][1];
             }
-            new_data[i - 1][6] = new_data[i][0];
-            new_data[i - 1][7] = new_data[i][1];
+            new_data[i].rotate_left(2);
         }
+
         for i in 0..new_data.len() {
             defmt::debug!("data[{}]: {:?}", i, new_data[i]);
         }

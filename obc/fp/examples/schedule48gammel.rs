@@ -41,12 +41,10 @@ mod app {
         //can1 opsættes til den interne CAN1, og bliver linket til PA12 og PA11 på den alternative funktion 9.
         can1: bxcan::Can<Can<CAN1, (PA12<Alternate<9>>, PA11<Alternate<9>>)>>,
         sharedtime: [u8; 8],
-        sharedtaskid: Vec<[u8; 2], 48>,
+        sharedtaskid: Vec<[u8; 8], 10>,
         data_from_can: Vec<[u8; 8], 32>,
         rtc: Rtc<stm32f4xx_hal::rtc::Lsi>,
-        checksum: Vec<u16, 48>,
-        test: bool,
-        state: u8,
+        local_tasklist: Vec<Vec<[u8; 8], 32>, 48>,
     }
 
     // Holds the local resources (used by a single task)
@@ -57,7 +55,6 @@ mod app {
         can_input: Vec<[u8; 8], 32>,
         can_output: Vec<[u8; 8], 32>, //Stores outgoing messages over multiple frames
         fragment_count: u8,
-        response_counter: u8,
     }
 
     // The init function is called in the beginning of the program
@@ -138,11 +135,8 @@ mod app {
         let fragment_count = 0;
         let can_input = Vec::<[u8; 8], 32>::new();
         let data_from_can = Vec::<[u8; 8], 32>::new();
-        let sharedtaskid = Vec::<[u8; 2], 48>::new();
-        let test = true;
-        let state: u8 = 0;
-        let response_counter: u8 = 0;
-        let checksum = Vec::<u16, 48>::new();
+        let sharedtaskid = Vec::<[u8; 8], 10>::new();
+        let local_tasklist = Vec::<Vec<[u8; 8], 32>, 48>::new();
 
         // Set up the monotonic timer
         let mono = DwtSystick::new(&mut _core.DCB, _core.DWT, _core.SYST, clocks.hclk().to_Hz());
@@ -157,16 +151,13 @@ mod app {
                 sharedtaskid,
                 data_from_can,
                 rtc,
-                test,
-                state,
-                checksum,
+                local_tasklist,
             },
             Local {
                 led,
                 can_output,
                 fragment_count,
                 can_input,
-                response_counter,
             },
             init::Monotonics(mono),
         )
@@ -181,19 +172,17 @@ mod app {
     }
 
     // The task functions are called by the scheduler
-    #[task(local = [led], shared = [rtc,state])]
+    #[task(local = [led], shared = [rtc])]
     fn blink(mut ctx: blink::Context) {
-        if !(2 == ctx.shared.state.lock(|s| *s)) {
-            blink::spawn_after(1.secs()).ok();
-            ctx.local.led.toggle();
-            defmt::info!(
-                "time: {}",
-                ctx.shared.rtc.lock(|c| c
-                    .get_datetime()
-                    .assume_offset(offset!(UTC))
-                    .unix_timestamp())
-            );
-        };
+        blink::spawn_after(1.secs()).ok();
+        ctx.local.led.toggle();
+        defmt::info!(
+            "time: {}",
+            ctx.shared.rtc.lock(|c| c
+                .get_datetime()
+                .assume_offset(offset!(UTC))
+                .unix_timestamp())
+        );
     }
 
     // send a meesage via CAN
@@ -248,9 +237,9 @@ mod app {
             );
 
             //defmt::info!("Sending frame with data: {:#06X}", data);
-            // for _i in 0..10000 {
-            //     continue;
-            // }
+            for _i in 0..1000 {
+                continue;
+            }
             loop {
                 if can.lock(|c| c.transmit(&frame).is_ok()) {
                     break;
@@ -265,7 +254,7 @@ mod app {
     }
 
     // receive a message via CAN
-    #[task(binds = CAN1_RX0, shared = [can1,sharedtime, sharedtaskid, data_from_can, rtc,test,state,checksum], local=[can_input,response_counter],priority=4)]
+    #[task(binds = CAN1_RX0, shared = [can1,sharedtime, sharedtaskid, data_from_can, rtc, local_tasklist], local=[can_input],priority=4)]
     fn can_receive(mut ctx: can_receive::Context) {
         //defmt::info!("received message");
         let mut can1 = ctx.shared.can1;
@@ -300,51 +289,39 @@ mod app {
                 // for i in 0..can_input.len() {
                 //     defmt::info!("Element {} in message: {:#06X}", i, can_input[i]);
                 // }
-                //defmt::info!("end frame");
+                defmt::info!("end frame");
                 //saves the time in shared variable, is only used by set_time task
                 let mut st = ctx.shared.sharedtime;
                 st.lock(|c| *c = can_input[0]);
                 //copy can_input over to shared variable to be processed in the respective tasks
                 let mut data_from_can = ctx.shared.data_from_can;
-                let state = ctx.shared.state.lock(|s| *s);
-                if 1 == state {
-                    let mut test = ctx.shared.test;
-                    let mut counter = ctx.local.response_counter;
-
-                    let mut sum: u16 = 0;
-
-                    for i in 0..can_input.len() {
-                        sum = crate::Fletcher16(&can_input[i], 8, sum);
-                    }
-
-                    //defmt::info!("checksum: {}", sum);
-                    let storedsum = ctx.shared.checksum.lock(|c| c.clone());
-                    let thissum = storedsum[*counter as usize];
+                if frame_id.cmd == 2 {
+                    //let task= can_input[0][0] as usize;
+                    can_input.clear();
                     defmt::info!(
-                        "Task {}: stored fletcher: {}, calculated fletcher: {}",
-                        *counter,
-                        thissum,
-                        sum
+                        "task is executed at time {}",
+                        ctx.shared.rtc.lock(|c| c
+                            .get_datetime()
+                            .assume_offset(offset!(UTC))
+                            .unix_timestamp())
                     );
-                    if !(thissum == sum) {
-                        defmt::info!("checksums do not match in nr {}", *counter);
-                        test.lock(|t| *t = false);
-                    }
-                    *counter += 1;
-                    if 48 == *counter {
-                        defmt::info!("all checksums have been checked");
-                        ctx.shared.state.lock(|s| *s = 2);
-                    }
+                    ctx.shared.local_tasklist.lock(|c| c.pop());
+                    reply::spawn().ok();
+                    request_task::spawn(0x46).ok();
                 } else {
                     data_from_can.lock(|c| {
                         c.clear();
                         c.extend(can_input.clone().into_iter())
                     });
-                };
+                }
             };
         } else {
             defmt::info!("Message not 4 us");
         }
+        // if received command = 2 it is seen as a task execute and can_input is cleared in order to free up the locks
+
+        //task list from requested to check for last message
+        //defmt::info!("can receive done");
     }
 
     //send message to rtc to receive the current time in order to schedule tasks
@@ -386,7 +363,32 @@ mod app {
             + ((got_time[6] as i32) << 8)
             + (got_time[7] as i32);
         defmt::info!("the time is: {}", time);
+        //defmt::info!("Time is: {}", time);
+        //defmt::info!("schedule task 1");
 
+        /*
+        for standard send to radio task, the header is:  [prio, rec, port, cmd, time]
+                                                         [ 1  ,  2 ,  0  ,  2 , time]
+
+                                                         cmd 2 = to see that the task has been executed
+
+        schedule task
+        schedule_task::spawn(prio, rec, port, cmd, time + offset)).ok();
+
+        size is for either full task list or first five. 0x35 for first five and 0x46 for full task list.
+
+        request task list
+        request_task::spawn(size).ok();
+
+        ID is the number in the list aka the amount of times schedule task has run fx, if 3 schedule task/ alter task has run the last task id is 3. if a task is altered or removed the id is removed from the list
+        ID is stored in a vector <[u8;8], 10>
+
+        alter task
+        alter_task::spawn(ID, prio, rec, port, cmd, time + offset).ok();
+
+        delete task
+        delete_task::spawn(ID).ok();
+        */
         for i in 0..48 {
             let data1: [u8; 8] = [i, i, i, i, i, i, i, i];
             schedule_task::spawn(1, 2, 0, 2, time + 100, data1).ok();
@@ -396,7 +398,7 @@ mod app {
         //compare
     }
 
-    #[task(shared=[sharedtaskid, data_from_can,checksum], local=[], priority = 2)]
+    #[task(shared=[sharedtaskid, data_from_can, local_tasklist], local=[], priority = 2)]
     fn schedule_task(
         ctx: schedule_task::Context,
         prio: u8,
@@ -408,6 +410,7 @@ mod app {
     ) {
         //defmt::info!("task schedule");
         let mut sending = Vec::<[u8; 8], 32>::new();
+        let mut local_tasklist = ctx.shared.local_tasklist;
         //create the new task command [prio, rec, port, cmd, time, time, time, time] - these are values for the new task
         //defmt::info!("sent schedule time {}", time);
         let prio: u8 = prio;
@@ -446,7 +449,7 @@ mod app {
         let mut sharedtaskid = ctx.shared.sharedtaskid;
         //lock task untill it has received the reply from obc
         //defmt::info!("task is locked");
-        let mut id: [u8; 2] = [0; 2];
+        let mut id: [u8; 8] = [0; 8];
         loop {
             data_from_can.lock(|c| {
                 datatmp.clear();
@@ -472,21 +475,85 @@ mod app {
         }
         sending[1][0] = id[0];
         sending[1][1] = id[1];
-        let mut sum: u16 = 0;
-
-        for i in 0..sending.len() {
-            sum = crate::Fletcher16(&sending[i], sending[i].len(), sum);
-        }
-
-        defmt::info!("Fletchsum: {}", sum);
-        let mut cs = ctx.shared.checksum;
-        cs.lock(|c| c.push(sum)).ok();
+        local_tasklist.lock(|c| c.push(sending).ok());
 
         //defmt::info!("schedule task has received confirmation");
     }
 
+    #[task(shared=[sharedtaskid, data_from_can, local_tasklist], priority=2)]
+    fn alter_task(
+        ctx: alter_task::Context,
+        task: usize,
+        prio: u8,
+        rec: u8,
+        port: u8,
+        cmd: u8,
+        time: i32,
+        data: [u8; 8],
+    ) {
+        defmt::info!("Alter Task");
+        let mut sending = Vec::<[u8; 8], 32>::new();
+        let mut local_tasklist = ctx.shared.local_tasklist;
+        //create the new task command [prio, rec, port, cmd, time, time, time, time] - these are values for the new task
+        let task_header: [u8; 8];
+        let prio: u8 = prio;
+        let rec: u8 = rec; //radio
+        let port: u8 = port; //radio port (TBD)
+        let cmd: u8 = cmd; //send command (TBD)
+        let time: i32 = time; //time given from task
+        let time1: u8 = (time >> 24) as u8;
+        let time2: u8 = (time >> 16) as u8;
+        let time3: u8 = (time >> 8) as u8;
+        let time4: u8 = time as u8;
+        let mut data = data;
+        //defmt::info!("schedule time: {}, {}, {}, {}", time1, time2, time3, time4);
+        task_header = [prio, rec, port, cmd, time1, time2, time3, time4];
+        sending.push(task_header).ok();
+
+        //adding task ID as [[x,x,x,x,x,x,x,x,],[ID,ID,0,0,0,0,0,0],...,[x,x,x,x,x,x,x,x]]
+        let mut sharedtaskid = ctx.shared.sharedtaskid;
+        let mut id = sharedtaskid.lock(|a| {
+            a[task];
+            a.remove(task)
+        });
+        for i in 0..6 {
+            id[i + 2] = data[i];
+        }
+        sending.push(id).ok();
+        local_tasklist.lock(|c| {
+            c.push(sending.clone()).ok();
+            c.remove(task)
+        });
+        //CAN header values [priority, receiver, port, command, sb, eb, frg_count]
+        let priority: u8 = 1;
+        let reciever: u8 = 1; //obc
+        let port: u8 = 3; //fp
+        let cmd: u8 = 3; //alter task
+        can_send::spawn(priority, reciever, port, cmd, sending, true).ok();
+
+        let mut datatmp = Vec::<[u8; 8], 32>::new();
+        let mut data_from_can = ctx.shared.data_from_can;
+        //lock task untill it has received the reply from obc
+
+        loop {
+            data_from_can.lock(|c| {
+                datatmp.extend(c.clone().into_iter());
+                c.clear()
+            });
+            if !datatmp.is_empty() {
+                //defmt::info!("received alteration confirmation");
+                let mut id: [u8; 8] = [0; 8]; //bytes [x,x,x,x,x,x,ID,ID] containing the id of the task saved as [ID,ID,x,x,x,x,x,x]
+                id[0] = datatmp[0][6];
+                id[1] = datatmp[0][7];
+                sharedtaskid.lock(|c| c.push(id).ok()); //place id in task id list for further refrence
+                data_from_can.lock(|c| c.clear()); //clear data ready for next receive
+                break;
+            }
+        }
+    }
+
     //request task list
-    #[task(shared=[data_from_can,state,test], priority=2)]
+    #[task(shared=[data_from_can, local_tasklist], priority=2)]
     fn request_task(mut ctx: request_task::Context, size: u8) {
         defmt::info!("request schedule");
         //the data here is irrelevant so an empty frame is sent
@@ -500,33 +567,109 @@ mod app {
         let reciever: u8 = 1; //obc
         let port: u8 = 3; //fp
         let cmd: u8 = 1; //request task
-        ctx.shared.state.lock(|state| *state = 1);
         can_send::spawn(priority, reciever, port, cmd, sending, true).ok();
 
-        defmt::info!("request task has been sent");
-        while !(2 == ctx.shared.state.lock(|state| *state)) {
-            continue;
-        }
-        defmt::debug!(
-            "48 Tasks have been schedueled and read back {}",
-            if true == ctx.shared.test.lock(|t| *t) {
-                "successfully"
-            } else {
-                "unsuccessfully"
+        let mut datatmp = Vec::<[u8; 8], 32>::new();
+        let mut vectorfull = Vec::<Vec<[u8; 8], 32>, 48>::new();
+        let mut data_from_can = ctx.shared.data_from_can;
+        //lock task untill it has received the reply from obc
+        loop {
+            let status = data_from_can.lock(|c| !c.is_empty());
+            if status {
+                data_from_can.lock(|c| {
+                    datatmp.extend(c.clone().into_iter());
+                    c.clear()
+                });
+                if datatmp[0][0] == 0x17 {
+                    //defmt::info!("all tasks received");
+                    break;
+                }
+                vectorfull.push(datatmp.clone()).ok();
+                datatmp.clear();
             }
-        );
-    }
-}
+        }
+        let mut local_tasklist = Vec::<Vec<[u8; 8], 32>, 48>::new();
+        ctx.shared
+            .local_tasklist
+            .lock(|c| local_tasklist.extend(c.clone().into_iter()));
+        //to see what is in the local list
+        // for i in 0..local_tasklist.len() {
+        //     for j in 0..local_tasklist[i].len() {
+        //         defmt::info!("local message: {:#06X}", local_tasklist[i][j]);
+        //     }
+        // }
 
-fn Fletcher16(data: &[u8], count: usize, prev_sum: u16) -> u16 {
-    //defmt::info!("prevsum: {:x}", prev_sum);
-    let mut sum1: u16 = prev_sum & 0b0000000011111111;
-    let mut sum2: u16 = (prev_sum & 0b1111111100000000) >> 8;
-    //defmt::info!("sum1: {:x}, sum2: {:x}", sum1, sum2);
-
-    for i in 0..count {
-        sum1 = (sum1 + data[i] as u16) % 255;
-        sum2 = (sum2 + sum1) % 255;
+        //comparison
+        let mut same = true;
+        if local_tasklist.len() == vectorfull.len() {
+            for i in 0..vectorfull.len() {
+                if local_tasklist[i].len() == vectorfull[i].len() {
+                    for j in 0..vectorfull[i].len() {
+                        if local_tasklist[i][j] != vectorfull[i][j] {
+                            same = false;
+                        }
+                    }
+                } else {
+                    same = false;
+                }
+            }
+        } else {
+            same = false;
+        }
+        defmt::println!("expected: {}", same);
     }
-    return (sum2 << 8) | sum1;
+
+    #[task(shared=[sharedtaskid, data_from_can, local_tasklist], priority=2)]
+    fn delete_task(ctx: delete_task::Context, task: usize) {
+        defmt::info!("delete task");
+        let mut sending = Vec::<[u8; 8], 32>::new();
+
+        //adding task ID as [[ID,ID,0,0,0,0,0,0],...,[x,x,x,x,x,x,x,x]]
+        let mut sharedtaskid = ctx.shared.sharedtaskid;
+        let mut local_tasklist = ctx.shared.local_tasklist;
+        let id = sharedtaskid.lock(|a| {
+            a[task];
+            a.remove(task)
+        });
+        local_tasklist.lock(|c| c.remove(task));
+
+        sending.push(id).ok(); //sending the task ID for deletion
+                               // for i in 0..sending.len() {
+                               //     //defmt::info!("sending value: {}", sending[i]);
+                               // }
+
+        //CAN header values [priority, receiver, port, command, sb, eb, frg_count]
+        let priority: u8 = 1;
+        let reciever: u8 = 1; //obc
+        let port: u8 = 3; //fp
+        let cmd: u8 = 4; //delete task
+        can_send::spawn(priority, reciever, port, cmd, sending, true).ok();
+
+        let mut datatmp = Vec::<[u8; 8], 32>::new(); //temporary data
+        let mut data_from_can = ctx.shared.data_from_can; //data from receive can
+                                                          //lock task untill it has received the reply from obc
+        loop {
+            data_from_can.lock(|c| {
+                datatmp.extend(c.clone().into_iter());
+                c.clear()
+            });
+            if !datatmp.is_empty() {
+                //defmt::info!("received a task deletion message");
+                data_from_can.lock(|c| c.clear()); //clear data ready for next receive
+                break;
+            }
+        }
+    }
+
+    #[task(priority = 5)]
+    fn reply(_ctx: reply::Context) {
+        let mut sending = Vec::<[u8; 8], 32>::new();
+        sending.push([0x06, 0, 0, 0, 0, 0, 0, 0]).ok();
+        let priority: u8 = 5;
+        let reciever: u8 = 1; //obc
+        let port: u8 = 3; //fp
+        let cmd: u8 = 0; //reply
+                         //defmt::info!("execution reply sent");
+        can_send::spawn(priority, reciever, port, cmd, sending, true).ok();
+    }
 }
