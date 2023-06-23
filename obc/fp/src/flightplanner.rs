@@ -195,8 +195,8 @@ pub mod flightplanner {
 
         //Makes sure that we do not read more than possible
         let mut max = dlc * 8;
-        if max == 255 {
-            max = 253;
+        if max > 254 {
+            max = 254;
         }
 
         //Shifts data two spaces to the right
@@ -206,7 +206,7 @@ pub mod flightplanner {
         }
 
         //Shifts data two spaces to the right
-        for i in (9..max).rev() {
+        for i in (8..max).rev() {
             //defmt::debug!("replace b{} with b{}", i + 2, i,);
             task[i + 2] = task[i];
         }

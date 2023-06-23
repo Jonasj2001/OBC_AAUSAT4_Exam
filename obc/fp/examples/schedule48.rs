@@ -341,6 +341,9 @@ mod app {
                         c.extend(can_input.clone().into_iter())
                     });
                 };
+                if frame_id.cmd == 2 {
+                    reply::spawn().ok();
+                };
             };
         } else {
             defmt::info!("Message not 4 us");
@@ -427,6 +430,7 @@ mod app {
         for _i in 0..30 {
             sending.push(data).ok();
         }
+        sending.push([69, 69, 69, 69, 69, 69, 0, 0]).ok();
 
         //CAN header values [priority, receiver, port, command, sb, eb, frg_count]
         let priority: u8 = 1;
@@ -515,6 +519,18 @@ mod app {
                 "unsuccessfully"
             }
         );
+    }
+
+    #[task(priority = 5)]
+    fn reply(_ctx: reply::Context) {
+        let mut sending = Vec::<[u8; 8], 32>::new();
+        sending.push([0x06, 0, 0, 0, 0, 0, 0, 0]).ok();
+        let priority: u8 = 5;
+        let reciever: u8 = 1; //obc
+        let port: u8 = 3; //fp
+        let cmd: u8 = 0; //reply
+                         //defmt::info!("execution reply sent");
+        can_send::spawn(priority, reciever, port, cmd, sending, true).ok();
     }
 }
 

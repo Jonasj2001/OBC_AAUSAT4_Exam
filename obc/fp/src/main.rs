@@ -736,7 +736,7 @@ mod app {
                     flash.lock(|f| f.write(address, &task));
                     //Reads the task back from memory, for confirmation of task
                     let mut read_back_content: [u8; 256] = [0; 256];
-                    flash.lock(|f| f.read(address, (dlc * 8) as usize, &mut read_back_content));
+                    flash.lock(|f| f.read(address, dlc as usize * 8, &mut read_back_content));
                     defmt::debug!("Read back content: {:?}", read_back_content[0..8]);
 
                     fp::compare_tasks(&task, &read_back_content)
@@ -813,7 +813,7 @@ mod app {
                 //Request time from memory
                 defmt::debug!("Time to execute task {} at time {}", firsttask.id, time);
                 let mut task: [u8; 256] = [0; 256];
-                flash.lock(|f| f.read(firsttask.id, (firsttask.dlc * 8) as usize, &mut task));
+                flash.lock(|f| f.read(firsttask.id, firsttask.dlc as usize * 8, &mut task));
                 let non_executed_byte = task[2];
                 defmt::debug!("read task: {:?}", task);
                 let executed_byte = non_executed_byte & 0b11000101;
