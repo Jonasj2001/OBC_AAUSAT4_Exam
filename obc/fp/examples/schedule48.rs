@@ -430,7 +430,9 @@ mod app {
         for _i in 0..30 {
             sending.push(data).ok();
         }
-        sending.push([69, 69, 69, 69, 69, 69, 0, 0]).ok();
+        sending
+            .push([data[0], data[0], data[0], data[0], data[0], data[0], 0, 0])
+            .ok();
 
         //CAN header values [priority, receiver, port, command, sb, eb, frg_count]
         let priority: u8 = 1;
