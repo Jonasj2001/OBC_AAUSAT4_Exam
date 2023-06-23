@@ -121,7 +121,8 @@ mod app {
             bxcan::Can::builder(can)
                 // APB1 (PCLK1): 45MHz, Bit rate: 1MBit/s, Sample Point 87.5%
                 // Value was calculated with http://www.bittiming.can-wiki.info/
-                .set_bit_timing(0x001b0002)
+                //.set_bit_timing(0x001b0002)
+                .set_bit_timing(0x00390002)
                 .set_automatic_retransmit(true)
                 // .set_silent(true)
                 .enable()
@@ -253,6 +254,7 @@ mod app {
             for _i in 0..1000 {
                 continue;
             }
+
             loop {
                 if can.lock(|c| c.transmit(&frame).is_ok()) {
                     break;
@@ -631,6 +633,7 @@ mod app {
         loop {
             let status = data_from_can.lock(|c| !c.is_empty());
             if status {
+                defmt::info!("ping");
                 data_from_can.lock(|c| {
                     datatmp.extend(c.clone().into_iter());
                     c.clear()
@@ -662,14 +665,22 @@ mod app {
                     for j in 0..vectorfull[i].len() {
                         if local_tasklist[i][j] != vectorfull[i][j] {
                             same = false;
+                            defmt::info!("failed at: {}, {}", i, j);
                         }
                     }
                 } else {
                     same = false;
+                    defmt::info!("failed: different length of tasks[{}]", i);
                 }
             }
         } else {
             same = false;
+            defmt::info!("failed: different task lenghts");
+            defmt::info!(
+                "local task list length: {}, received task list length: {}",
+                local_tasklist.len(),
+                vectorfull.len()
+            );
         }
 
         defmt::println!("expected: {}", same);

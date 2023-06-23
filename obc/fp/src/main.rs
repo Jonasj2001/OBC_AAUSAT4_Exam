@@ -133,7 +133,8 @@ mod app {
             bxcan::Can::builder(can)
                 // APB1 (PCLK1): 45MHz, Bit rate: 1MBit/s, Sample Point 87.5%
                 // Value was calculated with http://www.bittiming.can-wiki.info/
-                .set_bit_timing(0x001b0002)
+                //.set_bit_timing(0x001b0002)
+                .set_bit_timing(0x00390002)
                 .set_automatic_retransmit(true)
                 .enable()
         };
@@ -278,16 +279,20 @@ mod app {
                     [0; 8]
                 }
             };
+
             defmt::debug!("Sending: {:?}", data);
             if msg_queue.is_empty() {
                 end_bit = true;
             };
+
             let frame = ec::build_id(
                 priority, receiver, port, cmd, start_bit, end_bit, *frg_cnt, &data,
             );
 
             //Waits for transmitter to be idle - can be disabled for testing without receiver
             //Otherwise it would just dequeue the message, and not send it.
+
+            //@TODO: Lav timeout eller count til break - dette er unsafe
             loop {
                 if can.lock(|c| c.is_transmitter_idle()) {
                     break;
@@ -296,9 +301,9 @@ mod app {
 
             //Nessecary delay for CAN to be able to resend message in case of error
             //1000: good for 1Mbit/s - Equiv of 900us delay
-            // for _i in 0..1000 {
-            //     continue;
-            // }
+            for _i in 0..1000 {
+                continue;
+            }
 
             loop {
                 if can.lock(|c| c.transmit(&frame).is_ok()) {
@@ -342,6 +347,7 @@ mod app {
 
             let mut reply = Vec::<[u8; 8], 32>::new();
             can_input.push(data).ok();
+
             if frame_id.end_bit {
                 if can_input.is_full() && (!(data[6] == 0x00) || !(data[7] == 0x00)) {
                     //If this is the last bit of data - push it to the right recipient
