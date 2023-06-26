@@ -91,7 +91,7 @@ fn main() -> ! {
         fill(&mut memory);
     }
 
-    //dump_fp(&mut memory);
+    dump_fp(&mut memory);
     defmt::info!("Done");
 
     loop {
