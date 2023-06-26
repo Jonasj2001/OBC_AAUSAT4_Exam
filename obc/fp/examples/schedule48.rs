@@ -514,11 +514,11 @@ mod app {
             continue;
         }
         defmt::debug!(
-            "48 Tasks have been schedueled and read back {}",
+            "Test of requirement FP2: {}",
             if true == ctx.shared.test.lock(|t| *t) {
-                "successfully"
+                "Passed"
             } else {
-                "unsuccessfully"
+                "Failed"
             }
         );
     }
