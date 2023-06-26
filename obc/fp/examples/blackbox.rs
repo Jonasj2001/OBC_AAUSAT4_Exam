@@ -64,7 +64,7 @@ mod app {
     // The init function is called in the beginning of the program
     #[init]
     fn init(ctx: init::Context) -> (Shared, Local, init::Monotonics) {
-        defmt::info!("init");
+        defmt::info!("Init");
         // Cortex-M peripherals
         let mut _core: cortex_m::Peripherals = ctx.core;
 
@@ -190,7 +190,7 @@ mod app {
         if ctx.shared.blink_enable.lock(|b| *b) {
             blink::spawn_after(1.secs()).ok();
             defmt::info!(
-                "time: {}",
+                "Time: {}",
                 ctx.shared.rtc.lock(|c| c
                     .get_datetime()
                     .assume_offset(offset!(UTC))
@@ -304,7 +304,7 @@ mod app {
                 for i in 0..can_input.len() {
                     defmt::info!("Element {} in message: {:#06X}", i, can_input[i]);
                 }
-                defmt::info!("end frame");
+                //defmt::info!("End frame");
                 //saves the time in shared variable, is only used by set_time task
                 let mut st = ctx.shared.sharedtime;
                 st.lock(|c| *c = can_input[0]);
@@ -323,7 +323,7 @@ mod app {
 
                     can_input.clear();
                     defmt::info!(
-                        "task is executed at time {}",
+                        "Task is executed at time {}",
                         ctx.shared.rtc.lock(|c| c
                             .get_datetime()
                             .assume_offset(offset!(UTC))
@@ -386,7 +386,7 @@ mod app {
             + ((got_time[5] as i32) << 16)
             + ((got_time[6] as i32) << 8)
             + (got_time[7] as i32);
-        defmt::info!("the time is: {}", time);
+        defmt::info!("The time is: {}", time);
         //defmt::info!("Time is: {}", time);
         //defmt::info!("schedule task 1");
 
@@ -414,15 +414,15 @@ mod app {
         delete_task::spawn(ID).ok();
         */
         let data1: [u8; 8] = [0; 8];
-        defmt::info!("schedule task 1");
+        defmt::info!("Schedule task 1");
         schedule_task::spawn(1, 2, 0, 2, time + 100, data1).ok();
 
         let data2: [u8; 8] = [1; 8];
-        defmt::info!("schedule task 2");
+        defmt::info!("Schedule task 2");
         schedule_task::spawn(1, 2, 0, 2, time + 20, data2).ok();
 
         let data3: [u8; 8] = [2; 8];
-        defmt::info!("schedule task 3");
+        defmt::info!("Schedule task 3");
         schedule_task::spawn(1, 2, 0, 2, time + 10, data3).ok();
 
         request_task::spawn(0x46).ok();
@@ -441,16 +441,34 @@ mod app {
         request_task::spawn(0x46).ok();
 
         ctx.shared.blink_enable.lock(|b| *b = false);
-        while (ctx.shared.test_results.lock(|c| c.len()) < 5) {
+        while ctx.shared.test_results.lock(|c| c.len()) < 6 {
             continue;
         }
 
+        let mut req = [
+            "FP2.1:", "FP2.2:", "FP4:", "FP5:", "FP6:", "FP7:", "FP9:", "FP11:",
+        ];
+        let mut nr = [1, 1, 1, 4, 3, 2, 5, 5];
+
         let mut test_results = ctx.shared.test_results.lock(|t| t.clone());
-        for i in 0..test_results.len() {
+        // for i in 0..(test_results.len() - 1) {
+        //     defmt::info!(
+        //         "Test {}: {}",
+        //         req[i],
+        //         if true == test_results[i] {
+        //             "Passed"
+        //         } else {
+        //             "Failed"
+        //         }
+        // for i in 0..test_results.len() {
+        //     defmt::info!("Test {}: {}", i, test_results[i]);
+        // }
+
+        for i in 0..(req.len()) {
             defmt::info!(
-                "Test {}: {}",
-                i + 1,
-                if true == test_results[i] {
+                "Requirement {}     \t{}",
+                req[i],
+                if test_results[nr[i] - 1] {
                     "Passed"
                 } else {
                     "Failed"
@@ -534,7 +552,7 @@ mod app {
         //defmt::info!("schedule task has received confirmation");
     }
 
-    #[task(shared=[sharedtaskid, data_from_can, local_tasklist], priority=2)]
+    #[task(shared=[sharedtaskid, data_from_can, local_tasklist,test_results], priority=2)]
     fn alter_task(
         ctx: alter_task::Context,
         task: usize,
@@ -591,6 +609,14 @@ mod app {
                 c.clear()
             });
             if !datatmp.is_empty() {
+                let mut tr = ctx.shared.test_results;
+                if datatmp[0][0] == 0x06 {
+                    defmt::info!("Alteration success");
+                    tr.lock(|t| t.push(true).ok());
+                } else {
+                    defmt::info!("Alteration failed");
+                    tr.lock(|t| t.push(false).ok());
+                }
                 //defmt::info!("received alteration confirmation");
                 //let mut id: [u8; 8] = [0; 8]; //bytes [x,x,x,x,x,x,ID,ID] containing the id of the task saved as [ID,ID,x,x,x,x,x,x]
                 id[0] = datatmp[0][6];
@@ -612,7 +638,7 @@ mod app {
     //request task list
     #[task(shared=[data_from_can, local_tasklist,test_results], priority=2)]
     fn request_task(mut ctx: request_task::Context, size: u8) {
-        defmt::info!("request schedule");
+        defmt::info!("Request schedule");
         //the data here is irrelevant so an empty frame is sent
         let mut sending = Vec::<[u8; 8], 32>::new();
         let size = size;
@@ -633,7 +659,6 @@ mod app {
         loop {
             let status = data_from_can.lock(|c| !c.is_empty());
             if status {
-                defmt::info!("ping");
                 data_from_can.lock(|c| {
                     datatmp.extend(c.clone().into_iter());
                     c.clear()
@@ -665,31 +690,31 @@ mod app {
                     for j in 0..vectorfull[i].len() {
                         if local_tasklist[i][j] != vectorfull[i][j] {
                             same = false;
-                            defmt::info!("failed at: {}, {}", i, j);
+                            defmt::info!("Failed at: {}, {}", i, j);
                         }
                     }
                 } else {
                     same = false;
-                    defmt::info!("failed: different length of tasks[{}]", i);
+                    defmt::info!("Failed: different length of tasks[{}]", i);
                 }
             }
         } else {
             same = false;
-            defmt::info!("failed: different task lenghts");
+            defmt::info!("Failed: different task lenghts");
             defmt::info!(
-                "local task list length: {}, received task list length: {}",
+                "Local task list length: {}, received task list length: {}",
                 local_tasklist.len(),
                 vectorfull.len()
             );
         }
 
-        defmt::println!("expected: {}", same);
+        defmt::println!("Expected: {}", same);
         ctx.shared.test_results.lock(|c| c.push(same).ok());
     }
 
     #[task(shared=[sharedtaskid, data_from_can, local_tasklist], priority=2)]
     fn delete_task(ctx: delete_task::Context, task: usize) {
-        defmt::info!("delete task");
+        defmt::info!("Delete task");
         let mut sending = Vec::<[u8; 8], 32>::new();
 
         //adding task ID as [[ID,ID,0,0,0,0,0,0],...,[x,x,x,x,x,x,x,x]]
